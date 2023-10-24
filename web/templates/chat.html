@@ -1,0 +1,757 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Sidebar HTML and CSS| CodingNepal</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+
+    <style>
+      body {
+        background-color: black;
+        background-image: radial-gradient(
+          650px circle at 0% 0%,
+          hsl(218,41%,35%) 15%,
+          hsl(218,41%,30%) 35%,
+          hsl(218,41%,20%) 75%,
+          hsl(218,41%,19%) 80%,
+          transparent 100% 
+        ),
+        radial-gradient(
+          1250px circle at 100% 100%,
+          hsl(218,41%,45%) 15%,
+          hsl(218,41%,30%) 35%,
+          hsl(218,41%,20%) 75%,
+          hsl(218,41%,19%) 80%,
+          transparent 80%
+        );
+        height: 100vh;
+      }
+      .card {
+        background-color:rgba(33, 37, 41, 0.4);
+        width: 98rem;
+        border-radius: 20px;
+        margin-left: -25px;
+        height: 24rem;
+        flex-grow: 2;
+        border: 1px solid rgba(255, 255, 0, 0.1);
+      }
+      .card {
+           
+            overflow-y: auto; 
+           
+      }
+      .card, .card-body {
+        overflow: visible;
+      }
+      
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: system-ui;
+      }
+
+      body {
+          height: 100vh;
+          width: 100%;
+          background-image: url("images/hero-bg.jpg");
+          background-position: center;
+          background-size: cover;
+      }
+
+      .sidebar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100px;
+          height: 100%;
+          display: flex;
+          align-items: left;
+          flex-direction: column;
+          backdrop-filter: blur(17px);
+          --webkit-backdrop-filter: blur(17px);
+          background:rgba(33, 37, 41, 0.4);
+          border-right: 1px solid black;
+          transition: width 0.3s ease;
+          border: 1px solid rgba(176, 89, 177, 0.2);
+      }
+
+      .sidebar:hover {
+          width: 210px;
+      }
+
+      .sidebar .logo {
+          color: white;
+          display: flex;
+          align-items: center;
+          padding: 25px 10px 15px;
+      }
+
+      .logo img {
+          width: 43px;
+          border-radius: 50%;
+      }
+
+      .logo h2 {
+          font-size: 1.5rem;
+          font-weight: 60;
+          margin-left: 10px;
+          display: none;
+      }
+
+      .sidebar:hover .logo h2 {
+          display: block;
+      }
+
+      .sidebar .links {
+          list-style: none;
+          margin-top: 20px;
+          overflow-y: auto;
+          scrollbar-width: none;
+          height: calc(100% - 140px);
+      }
+
+      .sidebar .links::-webkit-scrollbar {
+          display: none;
+      }
+
+      .links li {
+          display: flex;
+          align-items: left;
+      }
+
+      .links li:hover {
+          cursor: pointer;
+          background-color:  rgba(176, 89, 177, 0.9); 
+          margin: -2; 
+          width: 230px;
+          margin-left: -30px;
+          font-weight: bold;
+      }
+
+      .links li:hover a {
+        color: white !important; 
+        font-weight: bold;
+      }
+      .links h4 {
+          color: white;
+          font-weight: 500;
+          display: none;
+          margin-bottom: 10px;
+      }
+
+      .sidebar:hover .links h4 {
+          display: block;
+      }
+
+      .links hr {
+          margin: 10px 8px;
+          border: 1px solid white;
+      }
+
+      .sidebar:hover .links hr {
+          border-color: transparent;
+      }
+
+      .links li span {
+          padding: 12px 10px;
+      }
+
+      .links li a {
+          padding: 10px;
+          color: white;
+          display: none;
+          font-weight: 500;
+          white-space: nowrap;
+          text-decoration: none;
+      }
+
+      .sidebar:hover .links li a {
+          display: block;
+      }
+
+      .links .logout-link {
+          margin-top: 20px;
+      }
+      
+      .material-symbols-outlined {
+      color: white;
+      }
+
+      .logo {
+        display: flex;
+        justify-content: center;
+        padding-left: 1px;  
+        font-size: 1.2em; 
+        margin-right: -10px
+      }
+      .first-letter {
+        font-size: 30px;
+        float: left;
+        margin-right: 100px; 
+        text-indent: 250px; 
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 200;
+        font-family: system-ui;
+        font-weight: bold;
+      }
+      .first-letter-sub{
+        font-size: 22px;
+        float: left;
+        text-indent: -90px; 
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 10px;
+        font-family: system-ui;
+       
+      }
+      .col {
+        flex-grow: 2;
+      }
+
+      .card-two-columns-left {
+        background-color: rgba(33, 37, 41, 0.4);
+        width: 1000rem;
+        width: 60%;
+        border-radius: 20px;
+        margin-left: -45px;
+        height: 7rem;
+        flex-grow: 1;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 0, 0.1);
+      }
+
+      .card-two-columns-left .card-body-two-columns-left {
+        overflow: visible;
+      }
+      
+      
+      .card-two-columns-left-medium {
+        background-color: rgba(33, 37, 41, 0.4);
+        width: 200rem;
+        width: 100%;
+        border-radius: 20px;
+        margin-left: 0px;
+        height: 7rem;
+        margin-top: 20px;
+        flex-grow: 1; 
+        border: 1px solid rgba(255, 255, 0, 0.1);
+      }
+
+      .card-two-columns-left-medium .card-body-two-columns-left-medium {
+        overflow: visible;
+      }
+
+      .card-two-columns-left-boton {
+        background-color: rgba(33, 37, 41, 0.4);
+        width: 200rem;
+        width: 100%;
+        border-radius: 20px;
+        margin-left: 0px;
+        height: 7rem;
+        margin-top: 30px;
+        flex-grow: 1; 
+        border: 1px solid rgba(255, 255, 0, 0.1);
+      }
+
+      .card-two-columns-left-medium .card-body-two-columns-left-boton {
+        overflow: visible;
+      }
+
+      .card-two-columns-right {
+        background-color: rgba(33, 37, 41, 0.4);
+        width: 73.5rem;
+        border-radius: 20px;
+        margin-left: 400px;
+        margin-top: -240px;
+        height: 23rem;
+        flex-grow: 2; 
+        border: 1px solid rgba(255, 255, 0, 0.1);
+      }
+      .card-two-columns-right .card-body-two-columns-right {
+        overflow: visible;
+      }
+
+      .sidebar:not(.active) li-picture,
+      .sidebar li-picture {
+            display: none;
+        }
+ 
+      .sidebar:hover li-picture,
+      .sidebar.active li-picture {
+            display: block;
+      }
+
+      .center-text {
+        display: block;
+        text-align: center;
+        width: 100%;
+        text-decoration: none;
+        color: white; 
+        }
+
+        a.center-text {
+        display: block;
+        text-align: center;
+        width: 100%;
+        text-decoration: none !important;
+        color:white; 
+        font-size: 12px;
+        font-style: italic;
+        }
+
+        .smaller-image {
+            width: 20px;
+            height: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .profile {
+          display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+        .profile img {
+          width: 100px; 
+          height: 100px;
+          border: 1px solid rgba(176, 89, 177, 0.8);
+          border-radius: 60%;
+        }
+        .center-text {
+          margin-left: -60px; 
+        }
+        .kpi-title {
+          font-size: 28px;
+          font-weight: bold;
+          color:  rgba(255, 255, 0, 0.9); 
+          margin-top: 12px; 
+          text-align: center;
+          font-style: italic;
+          font-family:"Poppins", sans-serif;
+          
+        }
+
+        .kpi-date {
+          font-size: 15px; 
+          color: white; 
+          text-align: center;  
+          font-style: italic;
+          font-family:"Poppins", sans-serif;
+          margin-top: -5px;       
+          font-weight: bold; 
+        }
+
+        .kpi-title-previous {
+          font-size: 12px; 
+          color: white; 
+          margin-top: 5px; 
+          text-align: center;
+          margin-left: 10px;
+          text-decoration: none;
+          font-style: italic;
+        }
+        .kpi-title-previous:hover {
+            text-decoration: none;
+        }
+
+        .kpi-title-previous:hover {
+            color: white; 
+            text-decoration: none; 
+        }
+        .kpi-title:hover {
+            color: white; 
+            text-decoration: none; 
+        }
+        .kpi-date:hover {
+            color: white;
+            text-decoration: none; 
+        }
+
+        select {
+          width: 140px;                      
+          padding: 5px;                     
+          border: 2px solid rgba(33, 37, 41, 0.5); 
+          border-radius: 5px;               
+          font-size: 12px;                  
+          background-color: rgba(33, 37, 41, 0.5);
+          color: rgba(176, 89, 177, 0.5);       
+          appearance: none;                 
+          -webkit-appearance: none;        
+          -moz-appearance: none;            
+          position: relative;               
+          left: 93%;                        
+          transform: translateX(-50%);       
+          margin-top: -30px;                
+          border: 1px solid rgba(255, 255, 0, 0.1);
+          align-items: center;
+        }
+
+        select:focus {
+            border-color: white;
+            outline: none;
+        }
+        select::after {
+            border-color:  white !important;
+        }
+        option {
+            padding: 10px;
+            background-color: rgba(33, 37, 41, 1) ;
+            color: white;
+        }
+
+        button[type="submit"] {  
+            background-color: white;      
+            border: none;                   
+            border-radius: 5px;           
+            font-size: 16px;             
+            color:  rgba(0, 123, 255, 0.5);                  
+            cursor: pointer;                
+            transition: background-color .3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: white;       
+        }
+
+        button[type="submit"]:active {
+            background-color: white;      
+        }
+        .select-text {
+            margin-left: 255px;  
+            color: white;
+            margin-top: 2px;
+            font-size: 13px;
+            margin-top: 10px;
+            font-family: system-ui;
+
+                }
+
+
+        #container-botom {
+            max-width: 1100px;
+            height: 10px;
+            flex-direction: column; 
+            margin-top: -570px;
+            margin-left: 330px;
+               
+        }
+
+        #chat-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            border: 1px solid rgba(176, 89, 177, 0.2);
+            padding: 10px;
+            border-radius: 20px;
+            height: 550px;
+            background-color: rgba(33, 37, 41, 0.5);
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow-y: auto; 
+            align-items: flex-start; 
+            scrollbar-track-color: rgba(176, 89, 177, 0.9); 
+            scrollbar-thumb-color:rgba(176, 89, 177, 0.8); 
+            scrollbar-thumb-width: 10px; 
+            scrollbar-thumb-border-radius: 5px; 
+
+            scrollbar-arrow-color: rgba(176, 89, 177, 0.8); 
+
+        }
+
+
+        #chat-container::-webkit-scrollbar {
+            width: 10px; 
+        }
+
+        #chat-container::-webkit-scrollbar-track {
+            background-color: rgba(255, 255, 0, 0.1); 
+        }
+
+        #chat-container::-webkit-scrollbar-thumb {
+            background-color:  rgba(176, 89, 177, 0.9); 
+            border-radius: 5px; 
+        }
+
+
+        #chat-container {
+            scrollbar-width: thin; 
+            scrollbar-color:  rgba(176, 89, 177, 0.9)  rgba(176, 89, 177, 0.2);
+        }
+      
+        .user-message, .bot-message {
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            text-align: left;
+            border: 1px solid rgba(176, 89, 177, 0.2);
+            font-family: system-ui;
+            white-space: nowrap;
+            overflow-y: auto; 
+            white-space: normal;
+            position: relative;
+        }
+
+
+        .user-message {
+            background-color: rgba(33, 37, 41, 0.5);
+            margin-top: 10px;
+            flex-direction: column;
+            justify-content: flex-end;
+            max-width: 70%; 
+            word-wrap: break-word; 
+            white-space: normal; 
+        }
+
+
+        .bot-message {
+            background-color:rgba(176, 89, 177, 0.5);
+            margin-top: 15px;
+            margin-left: auto;
+            max-width: 80%; 
+            word-wrap: break-word; 
+            white-space: normal; 
+            color: white
+        }
+        
+
+        @media (max-width: 768px) {
+
+            .user-message, .bot-message {
+                max-width: 90%;
+            }
+        }
+
+
+        #user-input-container {
+            display: flex; 
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+
+        #user-input {
+            width: 60%;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            border: 1px solid rgba(176, 89, 177, 0.2);
+            background-color: rgba(33, 37, 41, 1);
+            color: white;
+            font-family: system-ui;
+            margin-top:600px;
+            white-space: nowrap;
+            overflow: auto; 
+            margin-left: 200px;
+        
+        }
+
+        #send-button {
+            background-color: rgba(176, 89, 177, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 10%; 
+            width: auto; 
+ 
+        }
+
+      #send-button:hover {
+          background-color: rgba(176, 89, 177, 0.8); 
+      }
+
+      h1 {
+        color: hsla(218,80%,99%);
+        text-align: left;
+        font-size: 3rem;
+        margin-top: 1rem;
+        font-family: system-ui;
+        margin-left: 410px
+      }
+
+      #chat-container, #container-botom {
+      display: none;
+      }
+      #toggle-chat-button {
+        background-color:rgba(176, 89, 177, 0.5);
+        color: white; 
+        border: none; 
+        padding: 10px 20px; 
+        border-radius: 5px; 
+        cursor: pointer;
+        font-size: 16px; 
+        margin-top: 10px;
+        transition: background-color 0.3s ease, transform 0.1s ease;
+        margin-left: 255px
+      }
+
+      #toggle-chat-button:hover {
+          background-color:rgba(176, 89, 177, 0.8);
+      }
+    </style>
+</head>
+<body> 
+  <aside class="sidebar">
+    <div class="logo">
+      <i class="fas fa-bars"></i> 
+    </div>
+    <ul class="links">
+      <li>
+        <span class="material-symbols-outlined">&#xE88A</span>
+        <a href="{% url 'home' %}">Inicio</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xe85c</span>
+        <a href="{% url 'show_details' %}">Objetivo</a>
+      </li>
+      <li>  
+        <span class="material-symbols-outlined">&#xe228</span>
+        <a href="{% url 'show_tables' %}">Gastos</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xe8e5</span>
+        <a href="{% url 'comportamiento' %}">Tendencias</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xf04a</span>
+        <a href="{% url 'inversions' %}">Inversiones</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xe0b7</span>
+        <a href="{% url 'chat' %}">!Háblame!</a>
+      </li>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <li-picture>
+        <a href="https://www.focoanalyticsblog.org/#home">
+        <div class="profile">
+          <img src="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" alt="hola" class="smaller-image"> 
+        </a>
+        </li-picture>
+      </div> 
+        <br> 
+      </aside>  
+</body>
+<body>
+  <br>
+  <div class="card-title">
+    <br>
+    <span class="first-letter"> Version Beta: FocusChat </span><span class="first-letter-sub">!Hábleme!</span>
+    <br>
+    <br>
+  </div>
+  </nav>
+  </div> 
+  <span class="select-text"> <strong>Última Actualización: </strong> {{ last_update_date }}</span> 
+   <br>
+   <br>
+   <button id="toggle-chat-button">Empieza..</button>
+  <div id="chat-container">
+    <div id="chat-log"></div>
+  </div>
+  <div id="container-botom">
+  <input type="text" id="user-input" placeholder="Escribeme..."><button id="send-button">Enviar</button>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+  var count_message = 1; 
+  function resetCountMessage() {
+      count_message = 1;
+  }
+
+      function getCookie(name) {
+          var cookieValue = null;
+          if (document.cookie && document.cookie !== '') {
+              var cookies = document.cookie.split(';');
+              for (var i = 0; i < cookies.length; i++) {
+                  var cookie = jQuery.trim(cookies[i]);
+                  // Check if the cookie name matches the CSRF cookie name
+                  if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                      cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                      break;
+                  }
+              }
+          }
+          return cookieValue;
+      }
+  
+      $(document).ready(function () {
+          $('#send-button').on('click', function () {
+              const userMessage = $('#user-input').val().trim();
+              if (userMessage !== '') {
+                  $('#chat-log').append(`<div class="user-message">${userMessage}</div>`);
+                  $('#user-input').val(''); 
+  
+
+                  const csrfToken = getCookie('csrftoken');
+  
+
+                  $.ajax({
+                      url: '{% url "chat" %}',
+                      type: 'POST',
+                      headers: { 'X-CSRFToken': csrfToken },
+                      data: { user_message: userMessage },
+                      success: function (data) {
+                          const botResponse = data.bot_response;
+                          $('#chat-log').append(`<div class="bot-message">${botResponse}</div>`);
+
+                      }
+                  });
+              }
+          });
+      });
+
+
+      $(document).ready(function () {
+    $('#toggle-chat-button').on('click', function () {
+        $('#chat-container, #container-botom').toggle();
+        resetCountMessage();
+    });
+});
+
+  </script>
+</body>
+</html>
+</body>
+
+
+
+
+
+

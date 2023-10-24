@@ -1,0 +1,1 @@
+PLAN_BASIC_FREE = 'basic_free'

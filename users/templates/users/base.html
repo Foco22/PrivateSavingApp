@@ -1,0 +1,35 @@
+{% load static %}
+
+{# Load the tag library #}
+{% load bootstrap5 %}
+{% load bootstrap_icons %}
+
+{% bootstrap_css %}
+
+
+{# Display django.contrib.messages as Bootstrap alerts #}
+{% bootstrap_messages %}
+
+{# Display a form #}
+
+<!DOCTYPE html>
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}MyWacc{% endblock %}</title>
+
+    </head>
+
+    <body>
+        <div class="container-fluid">
+            <div class="row justify-content-center align-items-center vh-100">
+            {% block content %}
+            {% endblock %}
+            </div>
+        </div>
+    </body>
+
+    {% bootstrap_javascript %}
+</html>

@@ -1,0 +1,886 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <!-- Font Awesome -->
+    <!-- MDB -->
+    <!--<link rel="stylesheet" href="/django/web/static/css/mdb.min.css" /> -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Sidebar HTML and CSS| CodingNepal</title>
+    <!-- Linking Google font link for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        background-color: black;
+        background-image: radial-gradient(
+          650px circle at 0% 0%,
+          hsl(218,41%,35%) 15%,
+          hsl(218,41%,30%) 35%,
+          hsl(218,41%,20%) 75%,
+          hsl(218,41%,19%) 80%,
+          transparent 100% 
+        ),
+        radial-gradient(
+          1250px circle at 100% 100%,
+          hsl(218,41%,45%) 15%,
+          hsl(218,41%,30%) 35%,
+          hsl(218,41%,20%) 75%,
+          hsl(218,41%,19%) 80%,
+          transparent 80%
+        );
+        height: 100vh;
+      }
+      h1 {
+        color: hsla(218,80%,99%);
+        text-align: center;
+        font-size: 3rem;
+        margin-top: 1rem;
+      }
+      .card {
+        background-color:rgba(33, 37, 41, 0.5);
+        width: 49rem;
+        border-radius: 3px
+        transparent 95%;
+        margin-left: 760px;
+        display: flex;
+        height: 100%; 
+        
+      }
+      .card, .card-body {
+        overflow: visible;
+        
+      }
+      /* Importing Google font - Poppins */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: system-ui;
+      }
+
+      body {
+          height: 100vh;
+          width: 100%;
+          background-image: url("images/hero-bg.jpg");
+          background-position: center;
+          background-size: cover;
+      }
+
+      .sidebar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100px;
+          height: 100%;
+          display: flex;
+          align-items: left;
+          flex-direction: column;
+          backdrop-filter: blur(17px);
+          --webkit-backdrop-filter: blur(17px);
+          background:rgba(33, 37, 41, 0.5);
+          border-right: 1px solid black;
+          transition: width 0.3s ease;
+          border: 1px solid rgba(176, 89, 177, 0.2);
+      }
+
+      .sidebar:hover {
+          width: 210px;
+      }
+
+      .sidebar .logo {
+          color: white;
+          display: flex;
+          align-items: center;
+          padding: 25px 10px 15px;
+      }
+
+      .logo img {
+          width: 43px;
+          border-radius: 50%;
+      }
+
+      .logo h2 {
+          font-size: 1.5rem;
+          font-weight: 60;
+          margin-left: 10px;
+          display: none;
+      }
+
+      .sidebar:hover .logo h2 {
+          display: block;
+      }
+
+      .sidebar .links {
+          list-style: none;
+          margin-top: 20px;
+          overflow-y: auto;
+          scrollbar-width: none;
+          height: calc(100% - 140px);
+      }
+
+      .sidebar .links::-webkit-scrollbar {
+          display: none;
+      }
+
+      .links li {
+          display: flex;
+
+      }
+
+      .links li:hover {
+          cursor: pointer;
+          background-color: rgba(176, 89, 177, 0.9); 
+          margin: -2; 
+          width: 290px;
+          margin-left: -30px;
+          font-weight: bold;
+      }
+
+      .links li:hover a {
+        color: white !important; /* Change the text color to blue (or your desired color) */
+        font-weight: bold;
+      }
+
+      .links h4 {
+          color: white;
+          font-weight: 500;
+          display: none;
+          margin-bottom: 10px;
+      }
+
+      .sidebar:hover .links h4 {
+          display: block;
+      }
+
+      .links hr {
+          margin: 10px 8px;
+          border: 1px solid white;
+      }
+
+      .sidebar:hover .links hr {
+          border-color: transparent;
+      }
+
+      .links li span {
+          padding: 12px 10px;
+      }
+
+      .links li a {
+          padding: 10px;
+          color: white;
+          display: none;
+          font-weight: 500;
+          white-space: nowrap;
+          text-decoration: none;
+      }
+
+      .sidebar:hover .links li a {
+          display: block;
+      }
+
+      .links .logout-link {
+          margin-top: 20px;
+      }
+      
+      .material-symbols-outlined {
+      color: white;
+      }
+
+      .logo {
+        display: flex;
+        justify-content: center;
+        padding-left: 1px;  
+        font-size: 1.2em; 
+        margin-right: -10px
+      }
+      .first-letter {
+        font-size: 30px; /* or any other size */
+        float: left;
+        margin-right: 100px; /* or any other value */
+        text-indent: 250px; 
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 200;
+        font-family: system-ui;
+        font-weight: bold;
+
+
+      }
+      .first-letter-sub{
+        font-size: 20px; /* or any other size */
+        float: left;
+        text-indent: -90px; 
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 10px;
+        font-family: system-ui;
+        
+      }
+      .col {
+        flex-grow: 2;
+      }
+      .card-two-columns-left {
+        background-color:rgba(33, 37, 41, 0.5);
+        width: 47rem;
+        border-radius: 3px
+        transparent 95%;
+        margin-left: 305px;
+        height: 25rem;
+        flex-grow: 1; 
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 0, 0.1);
+      }
+
+      .card-two-columns-left .card-body-two-columns-left {
+        overflow: visible;
+      }
+
+      .card-two-columns-right {
+        background-color: rgba(33, 37, 41, 0.5);
+        width: 49rem;
+        border-radius: 3px
+        transparent 95%;
+        margin-left: 100px;
+        height: 25rem;
+        flex-grow: 2; 
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 0, 0.1);
+      }
+      .card-two-columns-right .card-body-two-columns-right {
+        overflow: visible;
+      }
+      .circle-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 30px;
+        }
+        .profile {
+          display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+
+        .sidebar:not(.active) li-picture,
+        .sidebar li-picture {
+            display: none;
+        }
+        
+        .sidebar:hover li-picture,
+        .sidebar.active li-picture {
+            display: block;
+        }
+
+        .smaller-image {
+            width: 80px;
+            height: 60px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .center-text {
+        display: block;
+        text-align: center;
+        width: 100%;
+        text-decoration: none;
+        color: white; 
+        }
+
+        a.center-text {
+        display: block;
+        text-align: center;
+        width: 100%;
+        text-decoration: none !important;
+        color:white; 
+        font-size: 12px;
+        font-style: italic;
+        }
+        .smaller-image {
+            width: 20px;
+            height: 20px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .profile img {
+          width: 100px; /* or any other size */
+          height: 100px;
+          border: 1px solid rgba(176, 89, 177, 0.8);
+          border-radius: 60%;
+        }
+        .center-text {
+          margin-left: -60px; /* adjust spacing */
+        }
+        .card-left {
+        background-color:rgba(33, 37, 41, 0.5);
+        width: 20rem;
+        border-radius: 20px;
+        margin-left: -50px;
+        margin-top: -10px;
+        height: 10rem;
+        flex-grow: 3;
+        border: 1px solid rgba(255, 255, 0, 0.1);
+
+        }
+        .card-left, .card-body-left {
+          overflow: visible;
+        }
+        .card-two-columns-left-top {
+        background-color:rgba(33, 37, 41, 0.5);
+        width: 47rem;
+        border-radius: 20px;
+        margin-left: -45px;
+        height: 23rem;
+        flex-grow: 1; 
+        border: 1px solid rgba(255, 255, 0, 0.1);
+       }
+
+       .card-two-columns-left .card-body-two-columns-left-boton {
+          overflow: visible;
+      }
+
+      .card-two-columns-right-top {
+        background-color:rgba(33, 37, 41, 0.5);
+        width: 49rem;
+        border-radius: 20px;
+        margin-left: 100px;
+        height: 23rem;
+        flex-grow: 1; 
+        border: 1px solid rgba(255, 255, 0, 0.1);
+       }
+
+       .card-two-columns-left .card-body-two-columns-right-boton {
+          overflow: visible;
+      }
+        
+      .card-two-columns-left-top-right {
+        background-color:rgba(33, 37, 41, 0.5);
+        width: 22rem;
+        border-radius: 20px;
+        margin-left: 400px;
+        height: 10rem;
+        flex-grow: 1; 
+        margin-top: -150px;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 255, 0, 0.1);
+       }
+      
+       .card-two-columns-left-boton-right {
+        background-color: rgba(33, 37, 41, 0.5);
+        width: 22rem;
+        border-radius: 20px;
+        margin-left: 400px;
+        height: 10rem;
+        flex-grow: 1; 
+        margin-top: 20px;
+        border: 1px solid rgba(255, 255, 0, 0.1);
+       }
+
+       .card-two-columns-left-boton-left {
+        background-color:rgba(33, 37, 41, 0.5);
+        width: 22rem;
+        border-radius: 20px;
+        margin-left: 2px;
+        height: 10rem;
+        flex-grow: 1; 
+        margin-top: -160px;
+        border: 1px solid rgba(255, 255, 0, 0.1);
+        
+       }
+       .kpi-title {
+          font-size: 45px; /* Adjust font size as needed */
+          font-weight: bold;
+          color:  rgba(176, 89, 177, 1); /* Change to your preferred color */
+          margin-top: 30px; /* Spacing from the canvas or any other element above */
+          text-align: center;
+          font-style: italic;
+          font-family: system-ui;          
+        }
+
+        .kpi-date {
+          font-size: 15px; /* Adjust font size as needed */
+          color: white; /* Change to your preferred color */
+          text-align: center;  
+          font-style: italic;
+          font-family: system-ui;
+          margin-top: -5px; 
+          font-weight: bold;
+               
+        }
+
+        .kpi-title-previous {
+          font-size: 13px; /* Adjust font size as needed */
+          color: white; /* Change to your preferred color */
+          text-align: center;
+          margin-left: 20px;
+          margin-top: 20px; /* Add top margin here */
+          text-decoration: none;
+          font-style: italic;  
+          
+        }
+
+        .kpi-title-previous:hover {
+            color: white; /* Replace #YOUR_CUSTOM_COLOR with your desired color value */
+            text-decoration: none; /* This removes the underline on hover */
+        }
+        .kpi-title:hover {
+            color:  white; /* Replace #YOUR_CUSTOM_COLOR with your desired color value */
+            text-decoration: none; /* This removes the underline on hover */
+        }
+        .kpi-date:hover {
+            color:  white; /* Replace #YOUR_CUSTOM_COLOR with your desired color value */
+            text-decoration: none; /* This removes the underline on hover */
+        }
+                /* For tablets */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .sidebar {
+                width: 60px; /* Reducing sidebar width for tablet view */
+            }
+            .card {
+                width: 70%; /* Reduce card width */
+            }
+            /* Add other styles for tablet screens here */
+        }
+
+        /* For mobile phones */
+        @media (max-width: 767px) {
+            .sidebar {
+                width: 50px; /* Further reducing sidebar width for mobile view */
+            }
+            .card {
+                width: 90%; /* Almost full width for mobile screens */
+                margin-left: 5%;
+            }
+            /* Add other styles for mobile screens here */
+        }
+        select {
+          width: 140px;                      /* Set width of the dropdown */
+          padding: 5px;                      /* Space inside the dropdown */
+          border: 2px solid rgba(33, 37, 41, 0.5); /* Border around the dropdown */
+          border-radius: 5px;                /* Rounded corners */
+          font-size: 12px;                   /* Text size */
+          background-color: rgba(33, 37, 41, 0.5); /* Background color */
+          color: rgba(255, 185, 255, 1);       /* Text color */
+          appearance: none;                  /* Remove default appearance */
+          -webkit-appearance: none;          /* For Chrome and Safari */
+          -moz-appearance: none;             /* For Firefox */
+          position: relative;                /* Use relative positioning */
+          left: 93%;                         /* Move 50% to the right */
+          transform: translateX(-50%);       /* Center horizontally */
+          margin-top: -30px;       
+          border: 1px solid rgba(255, 255, 0, 0.1);          /* Adjust the top margin as needed */
+        }
+        select:focus {
+            border-color:rgba(33, 37, 41, 0.5);
+            outline: none; /* This removes the browser's default focus outline */
+        }
+        option {
+            padding: 10px;
+            background-color: black ;
+            color: white;
+        }
+        option:focus {
+          border-color: rgba(33, 37, 41, 0.5);
+          outline: none; /* This removes the browser's default focus outline */
+    
+        }
+
+        button[type="submit"] {
+            padding: 5px 10px;               /* Space inside the button */
+            background-color:  rgba(33, 37, 41, 0.5);       /* Background color */
+            border: none;                    /* No border */
+            border-radius: 5px;              /* Rounded corners */
+            font-size: 10px;                 /* Text size */
+            color:  rgba(0, 123, 255, 0.5);                    /* Text color */
+            cursor: pointer;  
+            border: 1px solid rgba(255, 255, 0, 0.1);               /* Hand cursor on hover */
+            transition: background-color .3s;/* Smooth color transition */
+        }
+
+        button[type="submit"]:hover {
+            background-color: rgba(33, 37, 41, 0.5);       /* Slightly darker color on hover */
+        }
+
+        button[type="submit"]:active {
+            background-color:rgba(33, 37, 41, 0.5);       /* Even darker color when active/pressed */
+        }
+
+        select:focus {
+            border-color: rgba(33, 37, 41, 0.5);
+            outline: none;
+        }
+        
+        .select-text {
+            margin-left: 255px;  
+            color: white;
+            margin-top: 2px;
+            font-size: 13px;
+            margin-top: 10px;
+            font-family: system-ui;
+            border: 1px solid rgba(255, 255, 0, 0.1);
+
+        }
+    </style>
+</head>
+<body> 
+  <aside class="sidebar">
+    <div class="logo">
+      <i class="fas fa-bars"></i> 
+    </div>
+    <ul class="links">
+      <li>
+        <span class="material-symbols-outlined">&#xE88A</span>
+        <a href="{% url 'home' %}">Inicio</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xe85c</span>
+        <a href="{% url 'show_details' %}">Objetivo</a>
+      </li>
+      <li>  
+        <span class="material-symbols-outlined">&#xe228</span>
+        <a href="{% url 'show_tables' %}">Gastos</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xe8e5</span>
+        <a href="{% url 'comportamiento' %}">Tendencias</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xf04a</span>
+        <a href="{% url 'inversions' %}">Inversiones</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xe0b7</span>
+        <a href="{% url 'chat' %}">!Háblame!</a>
+      </li>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <li-picture>
+        <a href="https://www.focoanalyticsblog.org/#home">
+        <div class="profile">
+          <img src="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" alt="hola" class="smaller-image"> 
+        </a>
+        </li-picture>
+      </div> 
+        <br> 
+      </aside>  
+      <script>
+          var sidebar = document.querySelector('.sidebar');
+
+          // Listen for a click event on the sidebar
+          sidebar.addEventListener('click', function () {
+              // Toggle the "active" class on the sidebar
+              sidebar.classList.toggle('active');
+          });
+      </script>
+</aside>
+      <script>
+          var sidebar = document.querySelector('.sidebar');
+
+          // Listen for a click event on the sidebar
+          sidebar.addEventListener('click', function () {
+              // Toggle the "active" class on the sidebar
+              sidebar.classList.toggle('active');
+          });
+      </script>
+</aside>
+</header>
+  <br>
+  <div class="card-title">
+    <br>
+    <span class="first-letter">Inversiones</span><span class="first-letter-sub">Flujos de Ingresos & Egresos</span>
+    <br>
+    <br>
+  </div>
+  </nav>
+  </div> 
+  <span class="select-text"> <strong>Última Actualización: </strong> {{ last_update_date }}</span>  <!-- Text added next to the left of the select dropdown -->
+  <form method="get" action="{% url 'home' %}">
+    <select name="account_name" onchange="this.form.submit()">
+      <option value="">Cuentas</option>
+      {% for account in all_accounts %}
+      <option value="{{ account.account_name }}" {% if selected_account_name == account.account_name %}selected{% endif %}>{{ account.account_name }}</option>
+      {% endfor %}
+  </select>    
+  <div class="container">
+        <div class="col">
+          <br>
+          <div class="card-two-columns">
+            <div class="card-body row"> 
+              <div class="col-md-6"> 
+                <div class="card-two-columns-left-top">
+                <div class="card-body-two-columns-left-top">
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>  
+              <div>
+                <canvas id="myChartline_ingreso" style="width:92%; height:90%;"></canvas>
+              </div>
+              <div>
+                {{ get_investment_inputs_expenses_data|json_script:"get-investment-inputs-expenses-data" }}
+                {{ get_investment_inputs_expenses_label|json_script:"get-investment-inputs-expenses-label" }}
+              <script>
+                        // Using Django template variables to replace the data and labels
+              const dataline_ingreso = JSON.parse(document.getElementById('get-investment-inputs-expenses-data').textContent);
+              const labelline_ingreso = JSON.parse(document.getElementById('get-investment-inputs-expenses-label').textContent);
+              const ctxline_ingreso = document.getElementById('myChartline_ingreso'); 
+              new Chart(ctxline_ingreso, {
+                type: 'bar',
+                data: {
+                  labels: labelline_ingreso,
+                  datasets: [
+                            {
+                    label: 'Ingresos',
+                    data: dataline_ingreso,
+                    backgroundColor: 'rgba(176, 89, 177, 0.9)', // Light blue with some opacity
+                    borderColor: 'rgba(176, 89, 177, 0.9)', // Solid blue
+                    borderWidth: 1
+                  }
+                  ]
+                },
+                options: {
+                  plugins: {
+                    title: {
+                    display: true,
+                    text: '    Flujo de Ingresos',
+                    font: {
+                      size: 14,
+                      family: '"Poppins", sans-serif'
+                    },
+                    color: 'white',
+                    padding: {
+                      top: 10,
+                      bottom: 5
+                    },
+                    align: 'start', // Aligned to start (left for a top position)
+                    position: 'top', // You can specify the position (top, bottom, left, right)
+                  },
+                    legend: {
+                      display: true,
+                  position: 'top', // Place the legend at the top
+                  align: 'end',
+                  labels: {
+                      color: 'white' // Change the legend text color here
+                  }                    }
+                  },
+                  scales: {
+                    x: {
+                      beginAtZero: true,
+                      grid: {
+                        display: false
+                      },
+                      ticks: {
+                      color: 'white'
+                    }
+                    },
+                    y: {
+                      beginAtZero: true,
+                      grid: {
+                        display: false
+                      },
+                      ticks: {
+                        color: 'white'
+                      }
+                    }
+                  }
+                }
+              });
+              </script>
+              </div>
+         </div>
+        </div>
+      </div>
+         <div class="col-md-6"> 
+          <div class="card-two-columns-right-top">
+            <div class="card-body-two-columns-right-top">
+              <div>
+                <canvas id="myChartline_expenses" style="width:92%; height:90%;"></canvas>
+              </div>
+          <div>
+            {{ get_investment_inputs_income_data|json_script:"get-investment-inputs-income-data" }}
+            {{ get_investment_inputs_income_label|json_script:"get-investment-inputs-income-label" }}
+          <script>
+                    // Using Django template variables to replace the data and labels
+          const dataline = JSON.parse(document.getElementById('get-investment-inputs-income-data').textContent);
+          const labelline = JSON.parse(document.getElementById('get-investment-inputs-income-label').textContent);
+          const ctxline = document.getElementById('myChartline_expenses'); 
+          new Chart(ctxline, {
+            type: 'bar',
+            data: {
+              labels: labelline,
+              datasets: [
+                        {
+                label: 'Egreso',
+                data: dataline,
+                backgroundColor: 'rgba(74, 164, 73, 0.5)', // Light blue with some opacity
+                borderColor: 'rgba(74, 164, 73, 0.5)', // Solid blue
+                borderWidth: 1
+              }
+              ]
+            },
+            options: {
+              plugins: {
+                title: {
+                display: true,
+                text: '    Flujo de Egresos',
+                font: {
+                  size: 14,
+                  family: '"Poppins", sans-serif'
+                },
+                color: 'white',
+                padding: {
+                  top: 10,
+                  bottom: 5
+                },
+                align: 'start', // Aligned to start (left for a top position)
+                position: 'top', // You can specify the position (top, bottom, left, right)
+              },
+                legend: {
+                  display: true,
+                  position: 'top', // Place the legend at the top
+                  align: 'end',
+                  labels: {
+                      color: 'white' // Change the legend text color here
+                  }
+                                }
+              },
+              scales: {
+                x: {
+                  beginAtZero: true,
+                  grid: {
+                    display: false
+                  },
+                  ticks: {
+                  color: 'white'
+                }
+                },
+                y: {
+                  beginAtZero: true,
+                  grid: {
+                    display: false
+                  },
+                  ticks: {
+                    color: 'white'
+                  }
+                }
+              }
+            }
+          });
+
+          </script>
+          </div>
+       </div>
+      </div>
+    </div>
+  </div>
+  </div>  
+  <div class="card-two-columns">
+    <div class="card-body row"> 
+      <div class="col-md-6"> 
+        <div class="card-two-columns-left">
+        <div class="card-body-two-columns-left">
+        <div>
+          <canvas id="myChartbar_neta" style="width:100% ;"></canvas>
+        </div>
+        {{ get_investment_inputs_saving_data|json_script:"get-investment-inputs-saving-data" }}
+        {{ get_investment_inputs_saving_label|json_script:"get-investment-inputs-saving-label" }}
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>            
+      <script>
+                   // Using Django template variables to replace the data and labels
+          const databar_neta = JSON.parse(document.getElementById('get-investment-inputs-saving-data').textContent);
+          const labelsbar_neta = JSON.parse(document.getElementById('get-investment-inputs-saving-label').textContent);
+          const ctxbar_neta = document.getElementById('myChartbar_neta');
+          new Chart(ctxbar_neta, {
+            type: 'bar',
+            data: {
+              labels: labelsbar_neta,
+              datasets: [
+                        {
+                label: 'Neto',
+                data: databar_neta,
+                backgroundColor: 'rgba(176, 89, 177, 0.9)',
+                borderColor: 'rgba(176, 89, 177, 0.9)',
+                borderWidth: 1
+              }
+              ]
+            },
+            options: {
+              plugins: {
+                title: {
+                display: true,
+                text: '    Flujo Neto',
+                font: {
+                  size: 14,
+                  family: '"Poppins", sans-serif'
+                },
+                color: 'white',
+                padding: {
+                  top: 10,
+                  bottom: 5
+                },
+                align: 'start', // Aligned to start (left for a top position)
+                position: 'top', // You can specify the position (top, bottom, left, right)
+              },
+                legend: {                 
+                  display: true,
+                  position: 'top', // Place the legend at the top
+                  align: 'end',
+                  labels: {
+                      color: 'white' // Change the legend text color here
+                  }
+                                }
+              },
+              scales: {
+                x: {
+                  beginAtZero: true,
+                  grid: {
+                    display: false
+                  },
+                  ticks: {
+                  color: 'white'
+                }
+                },
+                y: {
+                  beginAtZero: true,
+                  grid: {
+                    display: false
+                  },
+                  ticks: {
+                    color: 'white'
+                  }
+                }
+              }
+            }
+          });
+      </script>
+ </div>
+</div>
+</div>
+</body>
+
+
+
+

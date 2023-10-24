@@ -1,0 +1,701 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Sidebar HTML and CSS| CodingNepal</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="path/to/loading.css">
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+   <script src="path/to/loading.js"></script>
+    <style>
+      body {
+        background-color: black;
+        background-image: radial-gradient(
+          650px circle at 0% 0%,
+          hsl(218,41%,35%) 15%,
+          hsl(218,41%,30%) 35%,
+          hsl(218,41%,20%) 75%,
+          hsl(218,41%,19%) 80%,
+          transparent 100% 
+        ),
+        radial-gradient(
+          1250px circle at 100% 100%,
+          hsl(218,41%,45%) 15%,
+          hsl(218,41%,30%) 35%,
+          hsl(218,41%,20%) 75%,
+          hsl(218,41%,19%) 80%,
+          transparent 80%
+        );
+        height: 100vh;
+      }
+      .card {
+        background-color:rgba(33, 37, 41, 0.4);
+        width: 98rem;
+        border-radius: 3px
+        transparent 95%;
+        margin-left: -25px;
+        height: 24rem;
+        flex-grow: 2;
+      }
+      .card {
+            overflow-y: auto; 
+      }
+      .card, .card-body {
+        overflow: visible;
+      }
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: "Poppins", sans-serif;
+      }
+
+      body {
+          height: 100vh;
+          width: 100%;
+          background-image: url("images/hero-bg.jpg");
+          background-position: center;
+          background-size: cover;
+      }
+
+      .sidebar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100px;
+          height: 100%;
+          display: flex;
+          align-items: left;
+          flex-direction: column;
+          backdrop-filter: blur(17px);
+          --webkit-backdrop-filter: blur(17px);
+          background:rgba(33, 37, 41, 0.4);
+          border-right: 1px solid black;
+          transition: width 0.3s ease;
+      }
+
+
+      .table-container {
+            box-shadow: 0px 4px 8px black; /* Horizontal offset, vertical offset, blur radius, shadow color */
+            border-radius: 8px; /* Optional: for rounded corners */
+            overflow: hidden; /* Optional: to ensure the shadow applies neatly even with rounded corners */
+        }
+        
+        .container {
+      text-align: center;
+      overflow: hidden;
+      width: 100rem; /* You have two width properties, so I'm using the 200rem */
+      padding: 0.1 20 2em 175;
+      top: 20px; /* Adjust this for the Y-coordinate */
+      left: 50px; /* Adjust this for the X-coordinate */
+      height: 50rem;
+      }
+      .container td, .container th {
+            padding-bottom: 1.5%;
+            padding-top: 1.5%;
+          padding-left:0.5%;  
+        }
+
+        /* Background-color of the odd rows */
+      .container tr:nth-child(odd) {
+            background-color: rgba(33, 37, 41, 0.5);
+        }
+
+        /* Background-color of the even rows */
+      .container tr:nth-child(even) {
+            background-color: rgba(33, 37, 41, 0.5);
+        }
+
+      .container th {
+            background-color: #1F2739;
+        } 
+
+      .container td:first-child { 
+        color: white;
+        background-color: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+      }
+
+      .container tr:hover {
+          background-color: #464A52;
+        -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+            -moz-box-shadow: 0 6px 6px -6px #0E1119;
+                  box-shadow: 0 6px 6px -6px #0E1119;
+        }
+
+      .container td:hover {
+          background-color: white;
+          color: #403E10;
+          font-weight: bold;
+          
+          box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+          transform: translate3d(6px, -6px, 0);
+          
+          transition-delay: 0s;
+            transition-duration: 0.4s;
+            transition-property: all;
+          transition-timing-function: line;
+        }
+
+        .styled-table {
+        border-collapse: collapse;
+        margin: 10px 10px;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        box-shadow: 0 0 10px black;
+        color: white;
+        width: 70rem;  /* Adjust the width as per your requirement */
+        overflow: auto;  /* Add a scrollbar if content overflows */
+        box-shadow: 0px 0px 0px ; /* Horizontal offset, vertical offset, blur radius, shadow color */
+        border-radius: 1px; /* Optional: for rounded corners */
+        overflow: hidden; /* Optional: to ensure the shadow applies neatly even with rounded corners */
+        
+      }
+      .styled-table tbody {
+          max-height: -10rem; /* Set maximum height for tbody */
+          text-align: center;
+          vertical-align: middle;
+
+      }
+      
+      .styled-table th, .styled-table td {
+          padding: 8px; /* Adjust this value to decrease or increase spacing */
+          line-height: 0.005; 
+          text-align: center;
+          vertical-align: middle;
+          min-width: 50 b px; /* Adjust this value as needed */
+          white-space: nowrap; /* Prevents the text from wrapping onto the next line */
+
+      }
+      .styled-table th:first-child, .styled-table td:first-child {
+            text-align: left;  /* This will align the text to the left in the first column */
+      }
+
+      .styled-table thead th {
+          background-color: rgba(176, 89, 177, 0.5); /* Change to any color you want for the background */
+          color: white; /* Change to any color you want for the text */
+          /* Add any other styles you want for your table headers */
+          padding: 15px 10px;
+          
+      }
+      .table-wrapper {
+            padding: 40px; /* add some padding around the table */
+            background-color: rgba(33, 37, 41, 0.5); /* set a background color */
+            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); /* add a shadow for depth */
+            width: 1400px;
+            height: 800px;
+            margin-left: 230px;  /* Move 30 pixels to the left */
+            margin-top: -20px; 
+            border-radius: 20px;
+        }
+        .table-container {
+            margin: 10px 0px; /* Some margin around the table */
+            margin-top: 50px;     /* Adjust as needed */
+            margin-left: -140px; 
+            background-color: transparent;
+        }
+
+        .first-letter {
+            font-size: 30px; /* Adjust the size */
+            color:white; /* Change the color */
+            margin-bottom: 30px; /* Add some space below the text */
+            margin-left: 100px;  /* Move 30 pixels to the left */
+            margin-top: 20px; 
+            font-family: "Roboto", sans-serif;
+            
+
+        }
+
+        .table-wrapper {
+            font-family: "Poppins", sans-serif;
+            padding-top: 25px; 
+            border: 0.5px solid rgba(176, 89, 177, 0.2);
+        }
+
+        .pagination-controls {
+    /* Adjust the position of the controls as needed */
+            text-align: right; /* Center the controls horizontally */
+            margin-top: 20px; /* Add margin to create space between the controls and the table */
+        }
+
+        .pagination-controls button {
+            font-size: 14px;  /* Adjust font size */
+            padding: 5px 5px;  /* Adjust padding to increase size */
+            border: none;  /* Remove default borders */
+            background-color: rgba(176, 89, 177, 0.5);  /* Blue background */
+            color: white;  /* White text */
+            cursor: pointer;  /* Hand cursor on hover */
+            transition: background-color 0.3s;  /* Smooth transition for hover effects */
+            border-radius: 5px;
+            font-weight: bold;
+            font-family: system-ui;
+
+        }   
+
+        .pagination-controls button:hover {
+            background-color:rgba(176, 89, 177, 0.8);  /* Darker blue on hover */
+        }
+
+        .pagination-controls button:disabled {
+            background-color: rgba(176, 89, 177, 0.5);  /* Gray out disabled buttons */
+            cursor: not-allowed;  /* Show 'not-allowed' cursor on disabled buttons */
+        }
+        .pagination-controls #pageIndicator {
+            color: white;  /* This changes the color of the entire text. Adjust to your preference. */
+        }
+        select option {
+            background-color: black;
+            color: white;  /* This is to ensure that the text on the black background is visible, change as required */
+        }
+        .custom-dropdown option {
+            background-color: black;
+            color: white;
+        }
+                select {
+            background-color: black;
+            color: white;
+        }
+        #homeButton {
+            background-color:rgba(176, 89, 177, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            color: white;
+            font-weight: bold;
+            font-family: system-ui;
+
+        }
+
+        #homeButton:hover {
+            background-color:rgba(176, 89, 177, 0.8);  /* Darker blue on hover */
+        }
+
+
+
+        #homeButton2 {
+            background-color:rgba(176, 89, 177, 0.5);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-weight: bold;
+            margin-left: -100px;
+            font-family: system-ui;
+
+        }
+        #homeButton2:hover {
+            background-color:  rgba(176, 89, 177, 0.8);  /* Gray out disabled buttons */
+        }
+
+        #sendTableData:hover {
+            background-color: rgba(0, 123, 255, 0.5);
+        }
+        
+        .button-description {
+            font-size: 12px;           /* Smaller font size */
+            color: white;               /* Grayish text color */
+            margin-top: 8px;           /* Spacing from the button */
+            font-style: italic;  
+            margin-left: -110px;      /* Italic font style */
+            text-align: left;
+        }
+
+        .styled-table select {
+             color: white
+        }
+        #loadingIcon {
+        display: none; /* Initially hidden */
+        z-index: 100;
+        position: fixed; /* It will cover the entire screen */
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+        width: 100px;
+        height: 100px;
+        }
+
+        .spinner::before {
+        content: "";
+        display: block;
+        width: 100px;
+        height:100px;
+        border: 3px solid rgba(176, 89, 177, 0.5);
+        border-top: 4px solid transparent;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+        }
+        h1 {
+        color: hsla(218,80%,99%);
+        text-align: left;
+        font-size: 3rem;
+        margin-top: 1rem;
+        font-size: 30px;
+        font-family: system-ui;
+        margin-left: -130px
+
+      }
+
+</style>
+</head>
+<body>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="table-wrapper">
+    <span class="first-letter"></span>
+
+<form id="myForm" method="post" action="{% url 'home' %}">
+  {% csrf_token %}
+  <div class="container">
+      <div class="row align-items-start">
+          <div class="col-12">
+            <h1>Oh, existen algunas transacciones que merecen tu mirada...</h1> 
+            <div class="pagination-controls">
+                <button id="prevPage" disabled>Anterior</button>
+                <span id="pageIndicator">1 of X</span>
+                <button id="nextPage">Siguiente</button>
+            </div>
+              {{ values|json_script:"table-expenses-by-day-values" }}
+              {{ columns|json_script:"table-expenses-by-day-columns" }}
+              {{ categories|json_script:"table-expenses-by-day-categories" }}
+              <div class="table-container">
+                  <table class="styled-table">
+                      <thead>
+                          <tr>
+                              <!-- Headers will be appended here via JavaScript -->
+                          </tr>
+                      </thead>
+                      <tbody id="tableBody">
+                          <!-- Data rows will be inserted here via JavaScript -->
+                      </tbody>
+                  </table>
+              </div>
+          </div>
+      </div>
+      <br>
+      <div class="submit-controls">
+        <button id="homeButton2" type="click">Ajustar BBDD</button>   
+        <button id="homeButton" type="submit">Avanzar</button>  
+        <div id="loadingIcon"  class="spinner" style="display: none;"></div>      
+        <div id="errorPlaceholder"></div>
+    </div>
+    <br>
+    <p class="button-description"> <strong>Consideración 1: </strong>La columna Tipo representa si el registros puede ser considerado como un flujo de entrada (ingreso), flujo de salida (gasto) o inversion. Si es una inversion como un fondo mutuo o deposito a plazo, se recomiendo categorizar esa entrada como inversion, y separarlo de los gastos o ingresos normales.</p>
+    <p class="button-description"> <strong>Consideración 1: </strong>La columna Tipo representa si el registros puede ser considerado como un flujo de entrada (ingreso), flujo de salida (gasto) o inversion. Si es una inversion como un fondo mutuo o deposito a plazo, se recomiendo categorizar esa entrada como inversion, y separarlo de los gastos o ingresos normales.</p>
+ 
+  </div>
+</div>
+</form>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const dropdown2Options = {
+    "Egreso": ["Cine & Casino",'Debt Payments','Education','Healthcare','Travel & Hotel',
+           'Insurance', 'Lullaby','Pharmacy','Restaurant & Bar','Supermarket & Retails',
+           'Transportation','Utilities','Others','Sports','Suscription','Transfers',
+           'Transport','Utilities'],
+    "Ingreso": ["Ingreso"],
+    "Inversiones": ['Ingreso', "Egreso"]
+};
+
+let changes = {};
+const row = tableBody.insertRow();
+row.setAttribute('data-index', i); 
+
+function updateHiddenInputFromDropdown(dropdown, i, key) {
+    const hiddenInputName = `hidden-${key}-${i}`;
+    let hiddenInput = document.querySelector(`[name="${hiddenInputName}"]`);
+    if (!hiddenInput) {
+        hiddenInput = document.createElement("input");
+        hiddenInput.type = "hidden";
+        hiddenInput.name = hiddenInputName;
+        dropdown.parentElement.appendChild(hiddenInput);
+    }
+    hiddenInput.value = dropdown.value;
+}
+
+function createDropdown(i,callback) {
+const select = document.createElement("select");
+const options = [ "Egreso","Ingreso", "Inversiones"];
+
+for (let option of options) {
+    const opt = document.createElement("option");
+    opt.value = option;
+    opt.textContent = option;
+    select.appendChild(opt);
+}
+
+select.name = "TipoUsuario";  // Add a name attribute
+select.addEventListener('change', function() {
+        changes[i] = changes[i] || {}; // Use i instead of rowIndex
+        changes[i][this.name] = this.value;
+        callback(this.value);
+    });
+
+    
+return select;
+}
+
+function createDropdown2(i, type) {
+const select = document.createElement("select");
+select.name = "SubCategoriaUsuario";  // Add a name attribute
+const options = dropdown2Options[type] || [];
+
+for (let option of options) {
+    const opt = document.createElement("option");
+    opt.value = option;
+    opt.textContent = option;
+    select.appendChild(opt);
+}
+
+select.name = "SubCategoriaUsuario";  // Add a name attribute
+select.addEventListener('change', function() {
+    let dataIndex = this.closest('tr').getAttribute('data-index');
+    changes[dataIndex] = changes[dataIndex] || {};
+    changes[dataIndex][this.name] = this.value;
+});
+
+return select;
+}
+  </script>
+  <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const tableValues = JSON.parse(document.getElementById('table-expenses-by-day-values').textContent);
+    const tableDates = JSON.parse(document.getElementById('table-expenses-by-day-columns').textContent);
+    const tableCategories = JSON.parse(document.getElementById('table-expenses-by-day-categories').textContent);
+
+    const tableHeadRow = document.querySelector(".styled-table thead tr");
+    for (let date of tableDates) {
+        const th = document.createElement("th");
+        th.textContent = date;
+        tableHeadRow.appendChild(th);
+    }
+
+    // Add new headers
+    const th1 = document.createElement("th");
+    th1.textContent = "TipoUsuario";
+    tableHeadRow.appendChild(th1);
+
+    const th2 = document.createElement("th");
+    th2.textContent = "SubCategoriaUsuario";
+    tableHeadRow.appendChild(th2);
+    
+    const tableBody = document.getElementById("tableBody");
+    const rowsPerPage = 10;
+    let currentPage = 1;
+
+    function gatherCurrentPageData() {
+        var currentPageData = [];
+        $("#tableBody tr").each(function(rowIndex) {
+            var rowData = {};
+            $(this).find('td').each(function(cellIndex, cell) {
+                var header = $(".styled-table thead th").eq(cellIndex).text();
+                if ($(cell).find('input').length) {
+                    rowData[header] = $(cell).find('input').val();
+                } else if ($(cell).find('select').length) {
+                    rowData[header] = $(cell).find('select').val();
+                } else {
+                    rowData[header] = $(cell).text();
+                }
+            });
+            currentPageData.push(rowData);
+        });
+
+        changes[currentPage] = currentPageData;
+    }
+
+    function renderPage(page) {
+        gatherCurrentPageData();
+        tableBody.innerHTML = "";
+        const start = (page - 1) * rowsPerPage;
+        const end = start + rowsPerPage;
+
+        for (let i = start; i < end && i < tableCategories.length; i++) {
+            const row = tableBody.insertRow();
+            for (let j = 0; j < tableDates.length; j++) {
+                let value = tableValues[i][j];
+                let cell = row.insertCell(j);
+                cell.textContent = value !== 0 ? value.toLocaleString('de-DE') : '-';
+                let hiddenInput = document.createElement("input");
+                hiddenInput.type = "hidden";
+                hiddenInput.name = `cell-${i}-${j}`;
+                hiddenInput.value = value;
+                cell.appendChild(hiddenInput);
+            }
+
+            const dropCell1 = row.insertCell();
+            const firstDropdown = createDropdown(i, function(value) {
+                const secondDropdownCell = row.querySelector('.second-dropdown-cell');
+                const newDropdown = createDropdown2(i, value);
+                secondDropdownCell.innerHTML = '';
+                secondDropdownCell.appendChild(newDropdown);
+            });
+            dropCell1.appendChild(firstDropdown);
+
+            const dropCell2 = row.insertCell();
+            dropCell2.className = 'second-dropdown-cell'; 
+            dropCell2.appendChild(createDropdown2(i, firstDropdown.value));  
+
+            if (changes[i]) {
+                if (changes[i]['TipoUsuario']) {
+                    firstDropdown.value = changes[i]['TipoUsuario'];
+                    const secondDropdownCell = row.querySelector('.second-dropdown-cell');
+                    const newDropdown = createDropdown2(i, firstDropdown.value);
+                    secondDropdownCell.innerHTML = '';
+                    secondDropdownCell.appendChild(newDropdown);
+                }
+                if (changes[i]['SubCategoriaUsuario']) {
+                    const secondDropdown = row.querySelector('.second-dropdown-cell select');
+                    secondDropdown.value = changes[i]['SubCategoriaUsuario'];
+                }
+            }
+        }
+
+        document.getElementById('prevPage').disabled = currentPage === 1;
+        document.getElementById('nextPage').disabled = currentPage === Math.ceil(tableCategories.length / rowsPerPage);
+        document.getElementById('pageIndicator').textContent = `${currentPage} of ${Math.ceil(tableCategories.length / rowsPerPage)}`;
+    }
+
+    document.getElementById('prevPage').addEventListener('click', function() {
+        if (currentPage > 1) {
+            currentPage--;
+            renderPage(currentPage);
+        }
+    });
+
+    document.getElementById('nextPage').addEventListener('click', function() {
+        if (currentPage < tableCategories.length / rowsPerPage) {
+            currentPage++;
+            renderPage(currentPage);
+        }
+    });
+
+    renderPage(currentPage);
+});
+
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+
+
+$(document).ready(function() {
+    var allData = {};  // This object will store data for each paginated page
+    var currentPage = 1;  // Assumes starting from page 1. Adjust if necessary.
+
+    // A function to gather the current page's table data
+    function gatherCurrentPageData() {
+        var currentPageData = [];
+
+        $("#tableBody tr").each(function() {
+            var row = {};
+            $(this).find('td').each(function(index, cell) {
+                var header = $(".styled-table thead th").eq(index).text();
+                var input = $(cell).find("input");
+                if (input.length) {
+                    row[header] = input.val();
+                } else if ($(cell).find('select').length) {
+                    row[header] = $(cell).find('select').val();
+                } else {
+                    row[header] = $(cell).text();
+                }
+            });
+            currentPageData.push(row);
+        });
+
+        allData[currentPage] = currentPageData;
+    }
+
+    // Monitor changes on the current page's data
+    $(document).on('change', '#tableBody input, #tableBody select', gatherCurrentPageData);
+
+    // You may have some logic to change the currentPage value when your pagination control is used.
+    // For example:
+    // $(document).on('click', '.pagination-button', function() {
+    //     currentPage = $(this).data('page-number');
+    //     gatherCurrentPageData();
+    // });
+
+    $("#myForm").on('submit', function(e) {
+        e.preventDefault();
+        window.location.href = "/home"
+        });
+
+        // Handle homeButton2 click
+        $("#homeButton2").on('click', function(e) {
+        e.preventDefault();
+
+        $("#loadingIcon").show();
+
+        gatherCurrentPageData();  // Ensure we have the latest page's data
+
+        // Flatten allData into a single array for submission
+        var combinedData = [].concat.apply([], Object.values(allData));
+
+        $.ajax({
+            type: 'POST',  // Note: If you want to use GET, adjust as necessary. 
+                           // However, remember that GET requests shouldn't modify server state.
+            url: '{% url "clasification" %}', // Adjust this URL to where you want to send the data.
+            data: JSON.stringify(combinedData),
+            headers: {
+                "X-CSRFToken": getCookie("csrftoken")
+            },
+            contentType: "application/json",
+            dataType: "json",
+            success: function(response) {
+                setTimeout(function() {
+                $("#loadingIcon").hide();
+            }, 1000); // 1000 milliseconds = 1 second
+            },
+            error: function(error) {
+                alert("An error occurred. Please try again.");
+            }
+        });
+    });
+
+});
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+</script>
+</html>
+
+

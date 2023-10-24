@@ -1,0 +1,611 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <!-- Font Awesome -->
+    <!-- MDB -->
+    <!--<link rel="stylesheet" href="/django/web/static/css/mdb.min.css" /> -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Sidebar HTML and CSS| CodingNepal</title>
+    <!-- Linking Google font link for icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+      body {
+        background-color: black;
+        background-image: radial-gradient(
+          650px circle at 0% 0%,
+          hsl(218,41%,35%) 15%,
+          hsl(218,41%,30%) 35%,
+          hsl(218,41%,20%) 75%,
+          hsl(218,41%,19%) 80%,
+          transparent 100% 
+        ),
+        radial-gradient(
+          1250px circle at 100% 100%,
+          hsl(218,41%,45%) 15%,
+          hsl(218,41%,30%) 35%,
+          hsl(218,41%,20%) 75%,
+          hsl(218,41%,19%) 80%,
+          transparent 80%
+        );
+        height: 100vh;
+      }
+      h1 {
+        color: hsla(218,80%,99%);
+        text-align: center;
+        font-size: 3rem;
+        margin-top: 1rem;
+      }
+      .card {
+        background-color:rgba(33, 37, 41, 0.4);
+        width: 98rem;
+        border-radius: 3px
+        transparent 95%;
+        margin-left: -25px;
+        height: 24rem;
+        flex-grow: 2;
+      }
+      .card {
+            /* ... */
+            overflow-y: auto; /* Adds scrollbar if the content overflows */
+            /* ... */
+      }
+      .card, .card-body {
+        overflow: visible;
+      }
+      /* Importing Google font - Poppins */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: system-ui;
+
+      }
+
+      body {
+          height: 100vh;
+          width: 100%;
+          background-image: url("images/hero-bg.jpg");
+          background-position: center;
+          background-size: cover;
+      }
+
+      .sidebar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100px;
+          height: 100%;
+          display: flex;
+          align-items: left;
+          flex-direction: column;
+          backdrop-filter: blur(17px);
+          --webkit-backdrop-filter: blur(17px);
+          background:rgba(33, 37, 41, 0.4);
+          border-right: 1px solid black;
+          transition: width 0.3s ease;
+          border: 0.5px solid  rgba(176, 89, 177, 0.2);
+      }
+
+      .sidebar:hover {
+          width: 210px;
+          
+      }
+
+      .sidebar .logo {
+          color: white;
+          display: flex;
+          align-items: center;
+          padding: 25px 10px 15px;
+      }
+
+      .logo img {
+          width: 43px;
+          border-radius: 50%;
+      }
+
+      .logo h2 {
+          font-size: 1.5rem;
+          font-weight: 60;
+          margin-left: 10px;
+          display: none;
+      }
+
+      .sidebar:hover .logo h2 {
+          display: block;
+
+      }
+
+      .sidebar .links {
+          list-style: none;
+          margin-top: 20px;
+          overflow-y: auto;
+          scrollbar-width: none;
+          height: calc(100% - 140px);
+          
+      }
+
+      .sidebar .links::-webkit-scrollbar {
+          display: none;
+      }
+
+      .links li {
+          display: flex;
+          align-items: left;
+          cursor: pointer;
+      }
+
+      .links li:hover {
+          cursor: pointer;
+          background-color:  rgba(176, 89, 177, 0.9); 
+          margin: -2; 
+          width: 230px;
+          margin-left: -30px;
+          font-weight: bold;
+      }
+
+      .links li:hover a {
+        color: white !important; /* Change the text color to blue (or your desired color) */
+        font-weight: bold;
+      }
+      .links h4 {
+          color: white;
+          font-weight: 500;
+          display: none;
+          margin-bottom: 10px;
+      }
+
+      .sidebar:hover .links h4 {
+          display: block;
+      }
+
+      .links hr {
+          margin: 10px 8px;
+          border: 10px solid white;
+      }
+
+      .sidebar:hover .links hr {
+          border-color: transparent;
+      }
+
+      .links li span {
+          padding: 12px 10px;
+      }
+
+      .links li a {
+          padding: 10px;
+          color: white;
+          display: none;
+          font-weight: 500;
+          white-space: nowrap;
+          text-decoration: none;
+      }
+
+      .sidebar:hover .links li a {
+          display: block;
+      }
+
+      .links .logout-link {
+          margin-top: 20px;
+      }
+      
+      .material-symbols-outlined {
+      color: white;
+      }
+
+      .logo {
+        display: flex;
+        justify-content: center;
+        padding-left: 1px;  
+        font-size: 1.2em; 
+        margin-right: -10px
+      }
+      .first-letter {
+        font-size: 30px; /* or any other size */
+        float: left;
+        margin-right: 100px; /* or any other value */
+        text-indent: 250px; 
+        color: rgba(255, 255, 255, 0.95);
+        font-weight: 200;
+        font-family: system-ui;
+        font-weight: bold;
+      }
+      .first-letter-sub{
+        font-size: 22px; /* or any other size */
+        float: left;
+        text-indent: -90px; 
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: 10px;
+        font-family: system-ui;
+      }
+      .col {
+        flex-grow: 2;
+      }
+      .card-two-columns-left {
+        background-color:rgba(33, 37, 41, 0.4);
+        width: 1000rem;
+        width: 60%;
+        border-radius: 3px
+        transparent 95%;
+        margin-left: -45px;
+        height: 25rem;
+        flex-grow: 1; 
+      }
+
+      .card-two-columns-left .card-body-two-columns-left {
+        overflow: visible;
+      }
+
+      .card-two-columns-right {
+        background-color: rgba(33, 37, 41, 0.4);
+        width: 73.5rem;
+        border-radius: 3px
+        transparent 95%;
+        margin-left: -290px;
+        height: 25rem;
+        flex-grow: 2; 
+      }
+      .card-two-columns-right .card-body-two-columns-right {
+        overflow: visible;
+      }
+      .styled-table {
+        border-collapse: collapse;
+        margin: 1px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        box-shadow: 0 0 10px black;
+        color: white;
+        width: 68rem;  /* Adjust the width as per your requirement */
+        height: -5rem;  /* Adjust the height as per your requirement */
+        overflow: auto;  /* Add a scrollbar if content overflows */
+        box-shadow: 0px 0px 0px ; /* Horizontal offset, vertical offset, blur radius, shadow color */
+        border-radius: 8px; /* Optional: for rounded corners */
+        overflow: hidden; /* Optional: to ensure the shadow applies neatly even with rounded corners */
+        
+      }
+      .styled-table tbody {
+          max-height: -10rem; /* Set maximum height for tbody */
+          text-align: center;
+          vertical-align: middle;
+
+      }
+      
+      .styled-table th, .styled-table td {
+          padding: 0.1px; /* Adjust this value to decrease or increase spacing */
+          line-height: 0.005; 
+          text-align: center;
+          vertical-align: middle;
+          min-width: 50 b px; /* Adjust this value as needed */
+          white-space: nowrap; /* Prevents the text from wrapping onto the next line */
+
+      }
+      .styled-table th:first-child, .styled-table td:first-child {
+            text-align: left;  /* This will align the text to the left in the first column */
+      }
+
+      .styled-table thead th {
+          background-color: rgba(176, 89, 177, 0.5); /* Change to any color you want for the background */
+          color: white; /* Change to any color you want for the text */
+          /* Add any other styles you want for your table headers */
+      }
+
+
+      .styled-table tbody tr:last-child {
+          background-color:   rgba(176, 89, 177, 0.5); /* Change to any color you want */
+          color: white; /* Change text color */
+          font-weight: bold; /* Makes text bold */
+      }
+
+      .container {
+      text-align: center;
+      overflow: hidden;
+      width: 600rem; /* You have two width properties, so I'm using the 200rem */
+      padding: 0.1 20 2em 175;
+      top: 40px; /* Adjust this for the Y-coordinate */
+      left: 250px; /* Adjust this for the X-coordinate */
+      height: 55rem;
+      }
+      .container td, .container th {
+            padding-bottom: 1.5%;
+            padding-top: 1.5%;
+          padding-left:0.5%;  
+        }
+
+        /* Background-color of the odd rows */
+      .container tr:nth-child(odd) {
+            background-color: rgba(33, 37, 41, 0.5);
+        }
+
+        /* Background-color of the even rows */
+      .container tr:nth-child(even) {
+            background-color: rgba(33, 37, 41, 0.5);
+        }
+
+      .container th {
+            background-color: #1F2739;
+        } 
+
+      .container td:first-child { 
+        color: white;
+        background-color: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+      }
+
+      .container tr:hover {
+          background-color: #464A52;
+        -webkit-box-shadow: 0 6px 6px -6px #0E1119;
+            -moz-box-shadow: 0 6px 6px -6px #0E1119;
+                  box-shadow: 0 6px 6px -6px #0E1119;
+        }
+
+      .container td:hover {
+          background-color: white;
+          color: #403E10;
+          font-weight: bold;
+          
+          box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
+          transform: translate3d(6px, -6px, 0);
+          
+          transition-delay: 0s;
+            transition-duration: 0.4s;
+            transition-property: all;
+          transition-timing-function: line;
+        }
+
+        .table-container {
+            box-shadow: 0px 4px 8px black; /* Horizontal offset, vertical offset, blur radius, shadow color */
+            border-radius: 8px; /* Optional: for rounded corners */
+            overflow: hidden; /* Optional: to ensure the shadow applies neatly even with rounded corners */
+        }
+
+        .sidebar:not(.active) li-picture,
+      .sidebar li-picture {
+            display: none;
+        }
+ 
+      .sidebar:hover li-picture,
+      .sidebar.active li-picture {
+            display: block;
+      }
+      
+      .center-text {
+        display: block;
+        text-align: center;
+        width: 100%;
+        text-decoration: none;
+        color: white; 
+        }
+
+        a.center-text {
+        display: block;
+        text-align: center;
+        width: 100%;
+        text-decoration: none !important;
+        color:white; 
+        font-size: 12px;
+        font-style: italic;
+        }
+
+        .smaller-image {
+            width: 150px;
+            height: 150px;
+            display: block;
+            margin: 0 auto;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            margin-left: 30px;
+        }
+        .profile img {
+          width: 100px; /* or any other size */
+          height: 100px;
+          border: 1px solid rgba(176, 89, 177, 0.8);
+          border-radius: 60%;
+        }
+        .center-text {
+          margin-left: -60px; /* adjust spacing */
+        }
+
+      @media (max-width: 800px) {
+      .container td:nth-child(4),
+      .container th:nth-child(4) { display: none; }
+      }
+
+      select {
+          width: 140px;                      /* Set width of the dropdown */
+          padding: 5px;                      /* Space inside the dropdown */
+          border: 2px solid rgba(33, 37, 41, 0.5); /* Border around the dropdown */
+          border-radius: 5px;                /* Rounded corners */
+          font-size: 12px;                   /* Text size */
+          background-color: rgba(33, 37, 41, 0.5); /* Background color */
+          color: rgba(255, 185, 255, 1);       /* Text color */
+          appearance: none;                  /* Remove default appearance */
+          -webkit-appearance: none;          /* For Chrome and Safari */
+          -moz-appearance: none;             /* For Firefox */
+          position: relative;                /* Use relative positioning */
+          left: 93%;                         /* Move 50% to the right */
+          transform: translateX(-50%);       /* Center horizontally */
+          margin-top: -30px;
+          border: 1px solid rgba(255, 255, 0, 0.1);                 /* Adjust the top margin as needed */
+        }
+       
+
+        option {
+            padding: 10px;
+            background-color: rgba(33, 37, 41, 1) ;
+            color: white;
+        }
+
+        button[type="submit"] {
+            padding: 10px 20px;               /* Space inside the button */
+            background-color: rgba(33, 37, 41, 0.5);       /* Background color */
+            border: none;                    /* No border */
+            border-radius: 5px;              /* Rounded corners */
+            font-size: 16px;                 /* Text size */
+            color: rgba(33, 37, 41, 0.5);                    /* Text color */
+            cursor: pointer;                 /* Hand cursor on hover */
+            transition: background-color .3s;/* Smooth color transition */
+        }
+
+        button[type="submit"]:hover {
+            background-color: rgba(33, 37, 41, 0.5)9;       /* Slightly darker color on hover */
+        }
+
+        button[type="submit"]:active {
+            background-color: rgba(33, 37, 41, 0.5);       /* Even darker color when active/pressed */
+        }
+        select:focus {
+            border-color: rgba(33, 37, 41, 0.5);
+            outline: none;
+        }
+        .select-text {
+            margin-left: 255px;  
+            color: white;
+            margin-top: 2px;
+            font-size: 13px;
+            margin-top: 10px;
+            font-family: system-ui;
+
+        }
+    </style>
+</head>
+<body> 
+  <aside class="sidebar">
+    <div class="logo">
+      <i class="fas fa-bars"></i> 
+    </div>
+    <ul class="links">
+      <li>
+        <span class="material-symbols-outlined">&#xE88A</span>
+        <a href="{% url 'home' %}">Inicio</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xe85c</span>
+        <a href="{% url 'show_details' %}">Objetivo</a>
+      </li>
+      <li>  
+        <span class="material-symbols-outlined">&#xe228</span>
+        <a href="{% url 'show_tables' %}">Gastos</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xe8e5</span>
+        <a href="{% url 'comportamiento' %}">Tendencias</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xf04a</span>
+        <a href="{% url 'inversions' %}">Inversiones</a>
+      </li>
+      <li>
+        <span class="material-symbols-outlined">&#xe0b7</span>
+        <a href="{% url 'chat' %}">!Háblame!</a>
+      </li>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <li-picture>
+        <a href="https://www.focoanalyticsblog.org/#home">
+        <div class="profile">
+          <img src="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" alt="hola" class="smaller-image"> 
+        </a>
+        </li-picture>
+      </div> 
+        <br> 
+      </aside>
+</body>
+<br>
+<div class="card-title">
+  <br>
+  <span class="first-letter">Categoría</span><span class="first-letter-sub">Detalle por categoría</span>
+  <br>
+  <br>
+</div>
+</nav>
+</div>
+<span class="select-text"> <strong>Última Actualización: </strong>   {{ last_update_date }}</span> 
+<form method="get" action="{% url 'show_tables' %}">
+  <select name="account_name" onchange="this.form.submit()">
+    <option value="">Cuentas</option>
+    {% for account in all_accounts %}
+    <option value="{{ account.account_name }}" {% if selected_account_name == account.account_name %}selected{% endif %}>{{ account.account_name }}</option>
+    {% endfor %}
+</select>
+<div class="container">
+  <div class="row align-items-start">
+    <div class="col-12">
+      <br>
+          {{ table_expenses_by_day_values|json_script:"table-expenses-by-day-values" }}
+          {{ table_expenses_by_day_columns|json_script:"table-expenses-by-day-columns" }}
+          {{ table_expenses_by_day_categories|json_script:"table-expenses-by-day-categories" }}
+          <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+          
+          <script>
+          document.addEventListener("DOMContentLoaded", function() {
+              const tableValues = JSON.parse(document.getElementById('table-expenses-by-day-values').textContent);
+              const tableDates = JSON.parse(document.getElementById('table-expenses-by-day-columns').textContent);
+              const tableCategories = JSON.parse(document.getElementById('table-expenses-by-day-categories').textContent);
+              
+              // Add the dates as headers
+              const tableHeadRow = document.querySelector(".styled-table thead tr");
+              for (let date of tableDates) {
+                  const th = document.createElement("th");
+                  th.textContent = date;
+                  tableHeadRow.appendChild(th);
+              }
+
+              const tableBody = document.getElementById("tableBody");
+              for (let i = 0; i < tableCategories.length; i++) {
+                  const row = tableBody.insertRow();
+                  row.insertCell(0).textContent = tableCategories[i];
+                  
+                for (let j = 0; j < tableDates.length; j++) {
+                    let value = tableValues[i][j];
+                    let cell = row.insertCell(j + 1);
+                    cell.textContent = value !== 0 ? value.toLocaleString('de-DE') : '-'
+                  }
+              }
+          });
+        </script>
+        <div class="table-container">
+          <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Categoría</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+

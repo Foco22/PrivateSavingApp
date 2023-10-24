@@ -1,0 +1,125 @@
+version: "3.3"
+
+services:
+  app:
+    build:
+      context: . #Sets the directory for docker-compose to build.
+      dockerfile: Dockerfile
+    # Maps port on the local machine to port on Docker image
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+      - jupyter
+    networks:
+      - my_network
+    volumes: 
+    # Copy changes made to the project to your image in real-time.
+      - .:/django
+    # Handles the command used to run the project in the Docker container.
+    command: /bin/bash -c "python manage.py runserver 0.0.0.0:8000"
+
+  jupyter:
+    build:
+      context: .
+      dockerfile: Dockerfile.jupyter
+    ports:
+      - "8888:8888"
+    command: jupyter lab --ip 0.0.0.0 --port 8888 --allow-root --NotebookApp.token='' --NotebookApp.password='' --no-browser --notebook-dir=/django
+    volumes:
+      - .:/django
+    environment:
+      - DJANGO_SETTINGS_MODULE=core.settings
+      - DJANGO_ALLOW_ASYNC_UNSAFE="true"
+    networks:
+      - my_network
+
+  db:
+    image: postgres
+    env_file: .env
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    networks:
+      - my_network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    volumes:
+      - ./data/pgadmin:/var/lib/pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    ports:
+      - "5050:80"
+    depends_on:
+      - db
+    networks:
+      - my_network
+      
+  chrome:
+    image: selenium/node-chrome:beta
+    shm_size: 2gb
+    depends_on:
+      - selenium-hub
+    environment:
+      - SE_EVENT_BUS_HOST=selenium-hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+  selenium-hub:
+    image: selenium/hub:latest
+    container_name: selenium-hub
+    ports:
+      - "4442:4442"
+      - "4443:4443"
+      - "4444:4444"
+  # Redis
+  redis:
+    image: redis:alpine
+    container_name: redis_container
+    volumes:
+      - redis_data:/data
+    networks:
+      - my_network
+
+  rabbitmq:
+    image: "rabbitmq"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+
+  # Celery
+  celery:
+    restart: always
+    build:
+      context: .
+    command: celery -A core worker --pool=solo -l info -Q celery,bank
+    volumes:
+      - .:/django
+    environment:
+      - DEBUG=1
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+    container_name: celery_container
+    depends_on:
+      - redis
+    networks:
+      - my_network
+  # Celery Beat
+  celery-beat:
+    build: .
+    command: celery -A core beat -l info
+    volumes:
+      - .:/django
+    environment:
+      - DEBUG=1
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+    depends_on:
+      - redis
+    networks:
+      - my_network
+volumes:
+  pgdata:
+  redis_data:
+networks:
+  my_network:
+    driver: bridge

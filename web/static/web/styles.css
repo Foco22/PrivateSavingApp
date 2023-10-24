@@ -1,0 +1,315 @@
+@font-face {
+  font-family: 'Myriad Pro Regular';
+  src: url('../fonts/MyriadPro-Regular.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #EBF2FF;
+    height: 100%;
+    font-family: 'Myriad Pro Regular' sans-serif ;
+
+}
+
+/*--------------------------------------------------*/
+
+
+/*REGISTER Y LOGIN*/
+
+.color-fondo {
+    background: #ffffff;
+}
+.color-fondo-formularios{
+    background: #ffffff;
+    
+}
+  
+.form-label {
+    color: #000000;
+    font-size: 18px;
+   
+  }
+  .text-white {
+    color: #fff!important;
+}
+
+/*--------------------------------------------------*/
+
+
+/*LOGO NAVBAR*/
+
+.white-rectangle {
+  background-color: white;
+  width: 100%;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+
+}
+
+
+.logo-with-margin {
+  margin: 10px 0 10px 50px;
+  width: 150px;
+  padding-top: 1%;
+  margin-bottom: 1%;
+}
+
+/*--------------------------------------------------*/
+
+
+/* TITULO */
+
+.diseño-titulo {
+  width: 100%;
+  background: linear-gradient(to right, #3EC0F0, #0000D6);
+  color: #FFFFFF;
+  padding: 1% 1% 1% 2%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+
+}
+.diseño-subtitulo {
+  width: 100%;
+  background: linear-gradient(to right, #3EC0F0, #0000D6);
+  color: #FFFFFF;
+  padding: 1% 1% 1% 2%;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 3%;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+
+}
+
+
+.page-title {
+  margin: 0;
+  padding: 10px; 
+}
+
+/*--------------------------------------------------*/
+
+
+/*FORMULARIO PROFILE*/
+
+.formulario-profile {
+  border-radius: 8px;
+  background-color: white;
+  color: #0000D6;
+  margin: 1% 1% 1% 1%;
+}
+
+.profile-letras{
+  border-radius: 8px;
+  background-color: white;
+  color: #0000D6;
+}
+
+.formulario-profile input,
+.formulario-profile label,
+.formulario-profile select,
+.formulario-profile textarea,
+.formulario-profile p {
+  color: #0000D6 !important;
+}
+
+/*--------------------------------------------------*/
+
+/*FOOTER*/
+
+.diseño-footer {
+  width: 100%;
+  background: linear-gradient(to right, #3EC0F0, #0000D6);
+  color: #FFFFFF;
+  padding: 1%;
+  box-shadow: 35px 0 0 2px rgba(227, 227, 227, 0.5), 2px 0 0 2px rgba(8, 59, 86, 0.2);
+
+
+}
+.logo-footer {
+  width: 150px;
+}
+
+.img-footer {
+  flex: 1;
+  text-align: right;
+}
+
+.letras-footer {
+  flex: 1;
+  text-align: right;
+  padding-top: 2%;
+}
+
+
+
+/* BOTONES */
+
+/*DELETE Y TABLA NEXT PREVIOUS*/
+
+a.btn.botones {
+  background-color: #3EC0F0;
+  color: white;
+  transition: background-color 0.7s ease-in-out;
+  border-radius: 30px;
+  padding: 10px 15px 10px 15px;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+
+}
+
+a.btn.botones:hover {
+  background-color: #0000D6;
+  color: #fff;
+
+}
+
+/*SUBMIT*/
+
+button.btn.botones {
+  background-color: #3EC0F0;
+  color: white;
+  transition: background-color 0.7s ease-in-out;
+  border-radius: 30px;
+  padding: 10px 15px 10px 15px;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+
+}
+
+button.btn.botones:hover {
+  background-color: #0000D6;
+  color: #fff;
+}
+
+/*Edit profile*/
+
+.botones2 {
+  background-color: #3EC0F0;
+  color: white;
+  transition: background-color 0.7s ease-in-out;
+  border-radius: 30px;
+  padding: 10px 15px 10px 15px;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+
+}
+
+.botones2:hover {
+  background-color: #0000D6;
+  color: white;
+}
+/*--------------------------------------------------*/
+
+
+/*Textos*/
+
+.tarjetas-sombra {
+  display: block;
+  border-radius: 8px;
+  background-color: white;
+  padding: 3% 2% 3% 2%;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+  margin: 1% 0 1% 0;
+  color: #0000D6;
+  line-height: 0.3;
+  align-items: center !important;  
+}
+
+/*--------------------------------------------------*/
+
+
+/*Graficos*/
+
+.tarjetas-sombra-graficos{
+  display: block;
+  border-radius: 8px;
+  background-color: white;
+  padding: 2% 0 1% 2% !important ;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+  align-items: center ;
+  width: 98%;
+  height: 98%;
+  margin-left: 1%;
+  margin-bottom: 1%;
+}
+
+/*--------------------------------------------------*/
+
+/*Tablas*/
+
+.tarjetas-sombra-tabla {
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+  color: #0000D6;
+  margin: 1% 0 1% 0;
+}
+
+.table.tarjetas-sombra-tabla thead tr th {
+  padding: 20px;
+}
+
+.table.tarjetas-sombra-tabla tbody tr td {
+  vertical-align: middle !important;
+}
+
+/*--------------------------------------------------*/
+
+/* BARRA DE NAVEGACION */
+
+.tarjetas-sombra-navbar {
+  border-radius: 8px;
+  background-color: white;
+  padding: 18px;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+}
+
+.tarjetas-sombra-navbar .nav-link {
+  display: block;
+  padding: 10px 20px;
+  margin: 5px 0;
+  border-radius: 30px;
+  border: 2px solid #0000D6;
+  color: #0000D6;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilos para el hover de los enlaces */
+.tarjetas-sombra-navbar .nav-link:hover {
+  background-color: #3EC0F0;
+  color: #0000D6;
+}
+
+/* Estilo para el borde y radio del navbar actual */
+.tarjetas-sombra-navbar .nav-item.active .nav-link {
+  border-color: #0000D6;
+  background-color: #0000D6;
+  color: white;
+}
+
+/* Estilo para el borde y radio del navbar en estado "active" en hover */
+.tarjetas-sombra-navbar .nav-item.active .nav-link:hover {
+  background-color: #0000D6;
+  color: white;
+}
+
+.tarjetas-sombra-navbar .nav-item.active .nav-link {
+  background-color: #3EC0F0; 
+  color: white; 
+}
+
+/*--------------------------------------------------*/
+
+/*Download*/
+
+.tarjetas-sombra-archivo {
+  display: block;
+  border-radius: 8px;
+  background-color: white;
+  padding: 3% 2% 3% 2%;
+  box-shadow: 0 2px 35px 0 rgba(227, 227, 227, 0.5), 0 2px 2px 0 rgba(8, 59, 86, 0.2);
+  color: #0000D6;
+  line-height: 0.3;
+  align-items: center !important;  
+}

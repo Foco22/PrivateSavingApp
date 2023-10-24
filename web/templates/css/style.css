@@ -1,0 +1,50 @@
+body {
+  background-color: hsl(218, 41%, 15%);
+  background-image: radial-gradient(
+    650px circle at 0% 0%,
+    hsl(218, 41%, 35%) 15%,
+    hsl(218, 41%, 30%) 35%,
+    hsl(218, 41%, 20%) 75%,
+    hsl(218, 41%, 19%) 80%,
+    transparent 100%
+  ),
+    radial-gradient(
+      1250px circle at 100% 100%,
+      hsl(218, 41%, 45%) 15%,
+      hsl(218, 41%, 30%) 35%,
+      hsl(218, 41%, 20%) 75%,
+      hsl(218, 41%, 19%) 80%,
+      transparent 100%
+    );
+  height: 100vh;
+  padding-left: 70px;
+  overflow-x: hidden;
+  color: #fff;
+}
+@media (max-width: 991.98px) {
+  body {
+    height: 100%;
+  }
+}
+.bg-theme {
+  background-color: hsl(218, 41%, 25%);
+}
+.bg-glass {
+  background: hsla(0, 0%, 100%, 0.15);
+  backdrop-filter: blur(30px);
+}
+.text-muted {
+  color: hsl(0, 0%, 80%) !important;
+}
+.text-success {
+  color: hsl(144, 100%, 40.9%) !important;
+}
+.text-danger {
+  color: hsl(350, 94.3%, 68.4%) !important;
+}
+.border-bottom {
+  border-bottom: 1px solid hsl(0, 0%, 50%) !important;
+}
+.badge {
+  padding: 5px 10px;
+}
