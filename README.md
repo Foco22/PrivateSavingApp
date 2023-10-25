@@ -12,7 +12,7 @@ Before you begin, if you want to use this app, you must sign up in Fintoc. This 
 - Sign in the website.
 - Add a new connection (blue bottom in the dashboard)
 - In the "Connect Live Link" windows, choose country, API and type of account. If it is a personal account,      should be a "Individual"
-- Choose the your bank.
+- Choose your bank account.
 - Add your RUT and password, and press "continuar"
 - You will recieve your link token, and you can use to extract your information.
 
@@ -48,7 +48,10 @@ I also hightligh that the logic was created based on your bank account as a the 
 
 ## Demo
 
-You can look at a video from your 
+You can look at a video of the app:
+
+
+
 
 ## Getting Started (How to install it)
 
@@ -58,10 +61,10 @@ To get this project up and running on your local machine, follow these steps:
 
 ```bash
 git clone https://github.com/your-username/financial-app.git
-cd financial-app
+cd PrivateSavingApp
 ```
 
-### Clone the Repository
+### Start the container
 
 Start the containers:
 
