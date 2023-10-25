@@ -160,6 +160,8 @@ class ExtractFintoc():
                 df['indicator_not_category'][index] = True
             else:
                 df['indicator_not_category'][index] = False
+        
+        
         return df
     
     
