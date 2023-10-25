@@ -9,5 +9,4 @@ urlpatterns = [
     path('', views.Chat, name='chat'),
     path('', views.inversions, name='inversions'),
     path('', views.Comportamiento, name='comportamiento'),
-
 ]

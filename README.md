@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a Saving app that using your financial records from your bank, allow to identify your income and expenses. Addicionally, the app has a discharge classifier which it be usefull to identify in what items you spend more. This classifier was done based on bussines rule, more than a ML or AI models. 
+This is a Saving app that using your financial records from your bank, allow to identify income and expenses monthly. Addicionally, the app has a discharge classifier which it be usefull to identify in what items you spend more. This classifier was done based on bussines rule, without using a ML or AI models. 
 
 ## Non-technical prerequisite
 
@@ -14,14 +14,14 @@ Before you begin, if you want to use this app, you must sign up in Fintoc. This 
 - In the "Connect Live Link" windows, choose country, API and type of account. If it is a personal account,      should be a "Individual"
 - Choose your bank account.
 - Add your RUT and password, and press "continuar"
-- You will recieve your link token, and you can use to extract your information.
+- You will recieve your link token, what you can use it to extract your information.
 
 After this, you also must get your secret key in the "Api Keys" section. With the Api Key and Secret key, you can use this app, because of those are the credencial neeeded to use Api of Fintoc.
 
 
 ## Technical prerequisite
 
-As prerequisited, you must installed the next ones:
+As prerequisited, you must installed the next ones in your computer:
 
 - Docker
 - Docker-compose.

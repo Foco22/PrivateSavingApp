@@ -11,3 +11,4 @@ urlpatterns = [
     path('inversions/', views.inversions, name='inversions'),
     path('comportamiento/', views.Comportamiento, name='comportamiento'),
 ]
+

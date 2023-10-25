@@ -36,6 +36,8 @@ from bank.models import ClassifiedData
 from django.http import JsonResponse
 import openai,os,sys
 import tiktoken
+from django.shortcuts import render
+
 
 logger = logging.getLogger(__name__)
 
@@ -46,7 +48,8 @@ template_start_name = '/django/web/templates/start.html'
 template_clasification_name = '/django/web/templates/clasification.html'
 template_chat_name = '/django/web/templates/chat.html'
 template_inversions_name = '/django/web/templates/inversions.html'
-template_inversions_name = '/django/web/templates/behavior.html'
+template_behavior_name = '/django/web/templates/behavior.html'
+template_error_name = '/django/web/templates/error.html'
 
 def get_expenses_data(saving_target, all_accounts):
     graph_bank_class = graph_bank.GraphExpenses()
@@ -145,122 +148,128 @@ def get_expenses_data(saving_target, all_accounts):
 
 
 def Home(request):
-    selected_account_name = request.GET.get('account_name', None)
 
-    if selected_account_name:
-        table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
-    else:
-        table_transaction_banks = models_bank.DataBanks.objects.all()
     try:
-        saving_target = SavingTarget.objects.latest('created_at')  
-    except SavingTarget.DoesNotExist:
-        saving_target = None  
+        selected_account_name = request.GET.get('account_name', None)
 
-    all_accounts = table_transaction_banks.values('account_name').distinct()
-    queryset = table_transaction_banks.all().values('account_name').distinct()
-    account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
-    context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
-    context['all_accounts'] = all_accounts
-    context['selected_account_name'] = selected_account_name
-    return render(request, 'home.html', context)
+        if selected_account_name:
+            table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
+        else:
+            table_transaction_banks = models_bank.DataBanks.objects.all()
+        try:
+            saving_target = SavingTarget.objects.latest('created_at')  
+        except SavingTarget.DoesNotExist:
+            saving_target = None  
+
+        all_accounts = table_transaction_banks.values('account_name').distinct()
+        queryset = table_transaction_banks.all().values('account_name').distinct()
+        account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
+        context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
+        context['all_accounts'] = all_accounts
+        context['selected_account_name'] = selected_account_name
+        return render(request, 'home.html', context)
+    except:
+        return render(request, template_error_name)
+
 
 def inversions(request):
-    selected_account_name = request.GET.get('account_name', None)
 
-    if selected_account_name:
-        table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
-    else:
-        table_transaction_banks = models_bank.DataBanks.objects.all()
     try:
-        saving_target = SavingTarget.objects.latest('created_at')  
-    except SavingTarget.DoesNotExist:
-        saving_target = None  
+        selected_account_name = request.GET.get('account_name', None)
 
-    all_accounts = table_transaction_banks.values('account_name').distinct()
-    queryset = table_transaction_banks.all().values('account_name').distinct()
-    account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
-    context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
-    context['all_accounts'] = all_accounts
-    context['selected_account_name'] = selected_account_name
-    return render(request, 'inversions.html', context)
+        if selected_account_name:
+            table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
+        else:
+            table_transaction_banks = models_bank.DataBanks.objects.all()
+        try:
+            saving_target = SavingTarget.objects.latest('created_at')  
+        except SavingTarget.DoesNotExist:
+            saving_target = None  
+
+        all_accounts = table_transaction_banks.values('account_name').distinct()
+        queryset = table_transaction_banks.all().values('account_name').distinct()
+        account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
+        context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
+        context['all_accounts'] = all_accounts
+        context['selected_account_name'] = selected_account_name
+        return render(request, 'inversions.html', context)
+    except:
+        return render(request, template_error_name)
+
 
 def Comportamiento(request):
-    selected_account_name = request.GET.get('account_name', None)
 
-    if selected_account_name:
-        table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
-    else:
-        table_transaction_banks = models_bank.DataBanks.objects.all()
     try:
-        saving_target = SavingTarget.objects.latest('created_at')  
-    except SavingTarget.DoesNotExist:
-        saving_target = None  
+        selected_account_name = request.GET.get('account_name', None)
 
-    all_accounts = table_transaction_banks.values('account_name').distinct()
-    queryset = table_transaction_banks.all().values('account_name').distinct()
-    account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
-    context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
-    context['all_accounts'] = all_accounts
-    context['selected_account_name'] = selected_account_name
-    return render(request, 'behavior.html', context)
+        if selected_account_name:
+            table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
+        else:
+            table_transaction_banks = models_bank.DataBanks.objects.all()
+        try:
+            saving_target = SavingTarget.objects.latest('created_at')  
+        except SavingTarget.DoesNotExist:
+            saving_target = None  
+
+        all_accounts = table_transaction_banks.values('account_name').distinct()
+        queryset = table_transaction_banks.all().values('account_name').distinct()
+        account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
+        context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
+        context['all_accounts'] = all_accounts
+        context['selected_account_name'] = selected_account_name
+        return render(request, 'behavior.html', context)
+    except:
+        return render(request, template_error_name)
+
 
 def Details(request):
-    selected_account_name = request.GET.get('account_name', None)
-
-    if selected_account_name:
-        table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
-    else:
-        table_transaction_banks = models_bank.DataBanks.objects.all()
+    
     try:
-        saving_target = SavingTarget.objects.latest('created_at')  
-    except SavingTarget.DoesNotExist:
-        saving_target = None  
+        selected_account_name = request.GET.get('account_name', None)
 
-    all_accounts = table_transaction_banks.values('account_name').distinct()
-    queryset = table_transaction_banks.all().values('account_name').distinct()
-    account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
-    context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
-    context['all_accounts'] = all_accounts
-    context['selected_account_name'] = selected_account_name
-    return render(request, template_details_name, context)
+        if selected_account_name:
+            table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
+        else:
+            table_transaction_banks = models_bank.DataBanks.objects.all()
+        try:
+            saving_target = SavingTarget.objects.latest('created_at')  
+        except SavingTarget.DoesNotExist:
+            saving_target = None  
+
+        all_accounts = table_transaction_banks.values('account_name').distinct()
+        queryset = table_transaction_banks.all().values('account_name').distinct()
+        account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
+        context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
+        context['all_accounts'] = all_accounts
+        context['selected_account_name'] = selected_account_name
+        return render(request, template_details_name, context)    
+    except:
+        return render(request, template_error_name)
 
 def Tables(request):
-    selected_account_name = request.GET.get('account_name', None)
 
-    if selected_account_name:
-        table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
-    else:
-        table_transaction_banks = models_bank.DataBanks.objects.all()
     try:
-        saving_target = SavingTarget.objects.latest('created_at')  
-    except SavingTarget.DoesNotExist:
-        saving_target = None  
+        selected_account_name = request.GET.get('account_name', None)
 
-    all_accounts = table_transaction_banks.values('account_name').distinct()
-    queryset = table_transaction_banks.all().values('account_name').distinct()
-    account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
-    context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
-    context['all_accounts'] = all_accounts
-    context['selected_account_name'] = selected_account_name
-    return render(request, template_tables_name, context)
+        if selected_account_name:
+            table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
+        else:
+            table_transaction_banks = models_bank.DataBanks.objects.all()
+        try:
+            saving_target = SavingTarget.objects.latest('created_at')  
+        except SavingTarget.DoesNotExist:
+            saving_target = None  
 
-#def send_message_to_chatgpt(conversation_history, user_message):
-#    
-#    conversation_history.append({"role": "user", "content": user_message})#
+        all_accounts = table_transaction_banks.values('account_name').distinct()
+        queryset = table_transaction_banks.all().values('account_name').distinct()
+        account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
+        context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
+        context['all_accounts'] = all_accounts
+        context['selected_account_name'] = selected_account_name
+        return render(request, template_tables_name, context)
+    except:
+        return render(request, template_error_name)
 
-#    openai.api_key = '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'
-#    endpoint = 'https://api.openai.com/v1/engines/davinci-codex/completions'
-#    messages = [{"role": "system", "content": "You are a helpful assistant."}] + conversation_history
-#    messages.append(
-#                {"role": "user", "content": user_message},
-#    )
-#    chat_completion = openai.ChatCompletion.create(
-#                model="gpt-3.5-turbo",
-#                messages=messages
-#    )
-#    bot_response = chat_completion.choices[0].message.content
-#    conversation_history.append({"role": "assistant", "content": bot_response})
-#    return conversation_history, bot_response
 
 def send_message_to_chatgpt(
     conversation_history,
@@ -269,7 +278,8 @@ def send_message_to_chatgpt(
     count_message
     ):
         
-    openai.api_key =  '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'
+    openai.api_key =  ''
+    
     transactions = text_data
     if count_message == 1:
         dicc_transactions = {'transactions': []}
@@ -357,39 +367,42 @@ def send_message_to_chatgpt(
 
 def Chat(request):
 
-    selected_account_name = request.GET.get('account_name', None)
-
-    if selected_account_name:
-        table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
-    else:
-        table_transaction_banks = models_bank.DataBanks.objects.all()
     try:
-        saving_target = SavingTarget.objects.latest('created_at')  
-    except SavingTarget.DoesNotExist:
-        saving_target = None  
+        selected_account_name = request.GET.get('account_name', None)
 
-    all_accounts = table_transaction_banks.values('account_name').distinct()
-    queryset = table_transaction_banks.all().values('account_name').distinct()
-    account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
-    context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
-    
-    graph_bank_class = graph_bank.GraphExpenses()
-    get_all_records = graph_bank_class.get_all_records()
-    get_all_records = get_all_records['text_records']
-    
-    conversation_history = request.session.get('conversation_history', [])
-    count_message = request.session.get('count_message', 1)
-    if request.method == 'POST':
-        user_message = request.POST.get('user_message', '') 
-        conversation_history, bot_response = send_message_to_chatgpt(conversation_history, user_message, get_all_records, count_message)
-        request.session['conversation_history'] = conversation_history
-        count_message = count_message + 1
-        request.session['count_message'] = count_message 
-        return JsonResponse({'bot_response': bot_response})
-    
-    request.session['count_message'] = 1
+        if selected_account_name:
+            table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
+        else:
+            table_transaction_banks = models_bank.DataBanks.objects.all()
+        try:
+            saving_target = SavingTarget.objects.latest('created_at')  
+        except SavingTarget.DoesNotExist:
+            saving_target = None  
 
-    return render(request, template_chat_name, context)
+        all_accounts = table_transaction_banks.values('account_name').distinct()
+        queryset = table_transaction_banks.all().values('account_name').distinct()
+        account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
+        context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
+        
+        graph_bank_class = graph_bank.GraphExpenses()
+        get_all_records = graph_bank_class.get_all_records()
+        get_all_records = get_all_records['text_records']
+        
+        conversation_history = request.session.get('conversation_history', [])
+        count_message = request.session.get('count_message', 1)
+        if request.method == 'POST':
+            user_message = request.POST.get('user_message', '') 
+            conversation_history, bot_response = send_message_to_chatgpt(conversation_history, user_message, get_all_records, count_message)
+            request.session['conversation_history'] = conversation_history
+            count_message = count_message + 1
+            request.session['count_message'] = count_message 
+            return JsonResponse({'bot_response': bot_response})
+        
+        request.session['count_message'] = 1
+
+        return render(request, template_chat_name, context)
+    except:
+        return render(request, template_error_name)
 
 
 def Start(request):
@@ -411,45 +424,45 @@ def Start(request):
     return render(request, template_start_name, {'form': form})
 
 def Clasification(request):
-     
-    records = DataBanks.objects.all().values()
-    df = pd.DataFrame.from_records(records)
-    df = df.loc[df['indicator_not_category'] == True]
-    df = df[['id','date','description','account_name','currency', 'amount','type_expenses','category_description']]
-    df = df.reset_index().drop(columns = ['index'])
-    df.rename(columns = {'date':'Fecha', 'description':'Descripción', 
-                        'amount':'Monto', 'currency':'Moneda', 
-                        'category_description':'SubCategoría', 
-                        'account_name':'Cuenta',
-                        'type_expenses':'Tipo'}, inplace = True)
-    
-    seaching_accounts = list(df['Descripción'].unique())
-    values = df.values.tolist()
-    columns = list(df.columns)
-    categories = df.index.to_list()
-    context =  {
-        'values': values,
-        'columns': columns,
-        'categories': categories,    
-        'accounts': seaching_accounts        
-    }
-    
-    if request.method == 'POST':
-            try:
-                data = json.loads(request.body)
-                for row in data:
-                    data_bank_instance = DataBanks.objects.get(id=row['id'])  # use 'ID' as a unique identifier
-                    data_bank_instance.type_expenses = row.get('TipoUsuario')
-                    data_bank_instance.category_description = row.get('SubCategoriaUsuario')
-                    data_bank_instance.save()
-#               
-                return JsonResponse({"success": True})
-            
-            except Exception as e:
-                return render(request, template_clasification_name, context)
-    
-    return render(request, template_clasification_name, context)
 
-
-
+    try:     
+        records = DataBanks.objects.all().values()
+        df = pd.DataFrame.from_records(records)
+        df = df.loc[df['indicator_not_category'] == True]
+        df = df[['id','date','description','account_name','currency', 'amount','type_expenses','category_description']]
+        df = df.reset_index().drop(columns = ['index'])
+        df.rename(columns = {'date':'Fecha', 'description':'Descripción', 
+                            'amount':'Monto', 'currency':'Moneda', 
+                            'category_description':'SubCategoría', 
+                            'account_name':'Cuenta',
+                            'type_expenses':'Tipo'}, inplace = True)
+        
+        seaching_accounts = list(df['Descripción'].unique())
+        values = df.values.tolist()
+        columns = list(df.columns)
+        categories = df.index.to_list()
+        context =  {
+            'values': values,
+            'columns': columns,
+            'categories': categories,    
+            'accounts': seaching_accounts        
+        }
+        
+        if request.method == 'POST':
+                try:
+                    data = json.loads(request.body)
+                    for row in data:
+                        data_bank_instance = DataBanks.objects.get(id=row['id'])  # use 'ID' as a unique identifier
+                        data_bank_instance.type_expenses = row.get('TipoUsuario')
+                        data_bank_instance.category_description = row.get('SubCategoriaUsuario')
+                        data_bank_instance.save()
+                
+                    return JsonResponse({"success": True})
+                
+                except Exception as e:
+                    return render(request, template_clasification_name, context)
+        
+        return render(request, template_clasification_name, context)
+    except:
+        return render(request, template_error_name)
 
