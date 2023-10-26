@@ -35,11 +35,11 @@ https://www.docker.com/products/docker-desktop/
 
 The app contains several graphs and insights from your income and expenses in your bank account, getting worth information from your net results (income and expenses). The app contains the following page:
 
-- **Start**: The home page is used to get the inputs from the user, as the name, target saving, link token and security token. Those inputs are used to extract the information by API (security and token), and also used as a input for some graph (target).
+- **Inicio**: The home page is used to get the inputs from the user, as the name, target saving, link token and security token. Those inputs are used to extract the information by API (security and token), and also used as a input for some graph (target).
 
-- **Clasification**: This page is used to clasify manually some records that can not be classify by the logic of the app. You will have a table with information from the date, description movement, type of movements, amount, etc. As those are you movement, probably you must know better what they are.
+- **Clasificador**: This page is used to clasify manually some records that can not be classify by the logic of the app. You will have a table with information from the date, description movement, type of movements, amount, etc. As those are you movement, probably you must know better what they are.
 
-- **Inicio (Home)**: The first page of the data, when you can look at information from your income, expenses and net flow from your bank account. This page is a summary of what you have spend of and your incomes.
+- **Home**: The first page of the data, when you can look at information from your income, expenses and net flow from your bank account. This page is a summary of what you have spend of and your incomes.
 
 - **Objetivo (Details)**: In this page, you can review the top 5 categories that you must spend of. Also, you can review your total expenses by month, target saving value (input getting from the start page) and your desviation. 
 
