@@ -104,7 +104,7 @@
       padding: 0.1 20 2em 175;
       top: 20px; /* Adjust this for the Y-coordinate */
       left: 50px; /* Adjust this for the X-coordinate */
-      height: 50rem;
+      height: 60rem;
       }
       .container td, .container th {
             padding-bottom: 1.5%;
@@ -198,7 +198,7 @@
             background-color: rgba(33, 37, 41, 0.5); /* set a background color */
             box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); /* add a shadow for depth */
             width: 1400px;
-            height: 800px;
+            height: 880px;
             margin-left: 230px;  /* Move 30 pixels to the left */
             margin-top: -20px; 
             border-radius: 20px;
@@ -312,12 +312,20 @@
         }
         
         .button-description {
-            font-size: 12px;           /* Smaller font size */
+            font-size: 13px;           /* Smaller font size */
             color: white;               /* Grayish text color */
             margin-top: 8px;           /* Spacing from the button */
-            font-style: italic;  
             margin-left: -110px;      /* Italic font style */
             text-align: left;
+        }
+
+        .button-description2 {
+            font-size: 15px;           /* Smaller font size */
+            color: white;               /* Grayish text color */
+            margin-top: 8px;           /* Spacing from the button */
+            margin-left: -130px;      /* Italic font style */
+            text-align: left;
+            font-family: system-ui;
         }
 
         .styled-table select {
@@ -377,7 +385,10 @@
   <div class="container">
       <div class="row align-items-start">
           <div class="col-12">
-            <h1>Oh, existen algunas transacciones que merecen tu mirada...</h1> 
+            <h1>Oh, existen algunas transacciones que merecen tu atención...</h1> 
+            <br>
+            <p class="button-description2"> ¡Amigo! Hay cuentas que no pudieron ser categorizadas, así que revísalas por ti mismo. No olvides que todo está centrado en tu cuenta principal, por lo que, si un transacción es un egreso, representa una salida de tu cuenta, y viceversa. Si tienes salidas/egresos relacionados a inversiones, tales como Fondos Mutuos/Depósitos a Plazo, deberías categorizarlas como inversiones, considerando que un egreso de tu cuenta representa un ingreso para tus inversiones, y de la misma manera que con los egresos. </p>
+
             <div class="pagination-controls">
                 <button id="prevPage" disabled>Anterior</button>
                 <span id="pageIndicator">1 of X</span>
@@ -390,17 +401,14 @@
                   <table class="styled-table">
                       <thead>
                           <tr>
-                              <!-- Headers will be appended here via JavaScript -->
                           </tr>
                       </thead>
                       <tbody id="tableBody">
-                          <!-- Data rows will be inserted here via JavaScript -->
                       </tbody>
                   </table>
               </div>
           </div>
       </div>
-      <br>
       <div class="submit-controls">
         <button id="homeButton2" type="click">Ajustar BBDD</button>   
         <button id="homeButton" type="submit">Avanzar</button>  
@@ -408,19 +416,17 @@
         <div id="errorPlaceholder"></div>
     </div>
     <br>
-    <p class="button-description"> <strong>Consideración 1: </strong>La columna Tipo representa si el registros puede ser considerado como un flujo de entrada (ingreso), flujo de salida (gasto) o inversion. Si es una inversion como un fondo mutuo o deposito a plazo, se recomiendo categorizar esa entrada como inversion, y separarlo de los gastos o ingresos normales.</p>
-    <p class="button-description"> <strong>Consideración 1: </strong>La columna Tipo representa si el registros puede ser considerado como un flujo de entrada (ingreso), flujo de salida (gasto) o inversion. Si es una inversion como un fondo mutuo o deposito a plazo, se recomiendo categorizar esa entrada como inversion, y separarlo de los gastos o ingresos normales.</p>
- 
+    <p class="button-description"> <strong>Consideración 1: </strong>La columna tipo representa si el registros fue considerado como un flujo de entrada (ingreso), flujo de salida (gasto) o inversion. Si sabes que esa salida/entrada es una inversion, categorizala como inversion. Si es una inversion que sale de tu cuenta, aparecera como egreso, pero debe ser considera como ingreso para tu cuenta de inversion. Por otro lado, si es un flujo positivo a tu cuenta corriente, deberia ser categorizada como egreso.</p>
   </div>
 </div>
 </form>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     const dropdown2Options = {
-    "Egreso": ["Cine & Casino",'Debt Payments','Education','Healthcare','Travel & Hotel',
-           'Insurance', 'Lullaby','Pharmacy','Restaurant & Bar','Supermarket & Retails',
-           'Transportation','Utilities','Others','Sports','Suscription','Transfers',
-           'Transport','Utilities'],
+    "Egreso": ["Cine & Casino",'Pago de Deudas','Educación','Salud','Viajes & Hotel',
+           'Seguros', 'Aseo & Limpieza','Farmacias','Restaurant & Bar','Supermercados & Retails',
+           'Transportation','Otros','Deportes','Suscripciones','Transferencias','SII',
+           'Transporte','Cuentas & Servicios'],
     "Ingreso": ["Ingreso"],
     "Inversiones": ['Ingreso', "Egreso"]
 };

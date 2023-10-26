@@ -26,6 +26,11 @@ As prerequisited, you must installed the next ones in your computer:
 - Docker
 - Docker-compose.
 
+If you do not have a Docker installed in your computer, please go to this page:
+
+https://www.docker.com/products/docker-desktop/
+
+
 ## ¿What does app contain?
 
 The app contains several graphs and insights from your income and expenses in your bank account, getting worth information from your net results (income and expenses). The app contains the following page:
@@ -60,7 +65,7 @@ To get this project up and running on your local machine, follow these steps:
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/financial-app.git
+git clone https://github.com/Foco22/PrivateSavingApp.git
 cd PrivateSavingApp
 ```
 
@@ -69,7 +74,7 @@ cd PrivateSavingApp
 Start the containers:
 
 ```bash
-make up
+docker-compose up
 ```
 
 You get in your: http://localhost:8000
@@ -79,5 +84,5 @@ You get in your: http://localhost:8000
 Stop the containers:
 
 ```bash
-make down
+docker-compose down
 ```

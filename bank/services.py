@@ -74,41 +74,41 @@ class ExtractFintoc():
         if pattern_cine.search(description):
             return 'Cine & Casino'
         elif pattern_debt_payments.search(description):
-            return 'Debt Payments'
+            return 'Pago de Deudas'
         elif pattern_education.search(description):
-            return 'Education'
+            return 'Educación'
         elif pattern_healthcare.search(description):
-            return 'Healthcare'
+            return 'Salud'
         elif pattern_travel_hotel.search(description):
-            return 'Travel & Hotel'
+            return 'Viajes & Hotel'
         elif pattern_income_work.search(description):
-            return 'Income'
+            return 'Ingreso'
         elif pattern_income_house.search(description):
-            return 'Income'
+            return 'Ingreso'
         elif pattern_insurance.search(description):
-            return 'Insurance'
+            return 'Seguros'
         elif pattern_lullaby.search(description):
-            return 'Lullaby'
+            return 'Aseo & Limpieza'
         elif pattern_pharmacy.search(description):
-            return 'Pharmacy'
+            return 'Farmacias'
         elif pattern_restaurant_bar.search(description):
             return 'Restaurant & Bar'
         elif pattern_supermarket_retails.search(description):
-            return 'Supermarket & Retails'
+            return 'Supermercados & Retails'
         elif pattern_sports.search(description):
-            return 'Sports'
+            return 'Deportes'
         elif pattern_suscription.search(description):
-            return 'Suscription'
+            return 'Suscripciones'
         elif pattern_sii.search(description):
             return 'SII'
         elif pattern_transfers.search(description):
-            return 'Transfers'
+            return 'Transferencias'
         elif pattern_transport.search(description):
-            return 'Transport'                
+            return 'Transporte'                
         elif pattern_utilities.search(description):
-            return 'Utilities'
+            return 'Cuentas & Servicios'
         else:
-            return 'Others'                
+            return 'Otros'                
         
     def get_movements(self):
         table_mov = []
@@ -156,7 +156,7 @@ class ExtractFintoc():
         for index in range(len(df)):
             category_expenses = df['category_expenses'][index]
             amount = df['amount'][index]
-            if category_expenses == 'Others' and amount > 100000:
+            if category_expenses == 'Otros' and amount > 100000:
                 df['indicator_not_category'][index] = True
             else:
                 df['indicator_not_category'][index] = False
