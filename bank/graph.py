@@ -130,7 +130,7 @@ class GraphExpenses():
         df = self.get_processing_transaccions()
         df = df.loc[df['account_name'] == all_accounts]
  
-        df = df[df['type_expenses'] == 'Ingreso']
+        df = df[df['type_expenses'] == 'Egreso']
         df_top_expenses = df[['amount','category_description']]
         df_top_expenses = df_top_expenses.groupby(['category_description']).sum()['amount'].reset_index()
         df_top_expenses['Percentaje'] = df_top_expenses['amount'].apply(lambda x: (x / df_top_expenses['amount'].sum()) * 100)
@@ -300,7 +300,7 @@ class GraphExpenses():
     def get_expense_last_day(self, all_accounts):
         
         df = self.get_processing_transaccions()
-        df = df.loc[df['account_name'] == all_accounts]
+        #df = df.loc[df['account_name'] == all_accounts]
         df = df.loc[df['date'] == df['date'].max()]
         df_expense = df[df['type_expenses'] == 'Egreso']
         df_expense = df_expense[['date','amount']]
@@ -585,7 +585,7 @@ class GraphExpenses():
     def get_income_median(self, all_accounts):
 
         df = self.get_processing_transaccions()
-        df = df.loc[df['account_name'] == all_accounts]
+        #df = df.loc[df['account_name'] == all_accounts]
         df_income = df[df['type_expenses'] == 'Ingreso']
         df_income['month'] = df_income['date'].apply(lambda x: str(x)[:7])
         df_income = df_income[['month','amount']]
@@ -605,7 +605,7 @@ class GraphExpenses():
     def get_expenses_median(self, all_accounts):
 
         df = self.get_processing_transaccions()
-        df = df.loc[df['account_name'] == all_accounts]
+        #df = df.loc[df['account_name'] == all_accounts]
         df_expenses = df[df['type_expenses'] == 'Egreso']
         df_expenses['month'] = df_expenses['date'].apply(lambda x: str(x)[:7])
         df_expenses = df_expenses[['month','amount']]
@@ -622,7 +622,7 @@ class GraphExpenses():
     def get_expenses_percentaje_per_day(self, all_accounts):
 
         df = self.get_processing_transaccions()
-        df = df.loc[df['account_name'] == all_accounts]
+        #df = df.loc[df['account_name'] == all_accounts]
         df_expenses = df[df['type_expenses'] == 'Egreso']
         df_expenses['date'] = pd.to_datetime(df_expenses['date'])
         df_expenses['day'] = df_expenses['date'].dt.day
@@ -646,7 +646,7 @@ class GraphExpenses():
         last_day_of_month = int(last_day_of_month.day)
  
         df = self.get_processing_transaccions()
-        df = df.loc[df['account_name'] == all_accounts]
+        #df = df.loc[df['account_name'] == all_accounts]
         df_expenses = df[df['type_expenses'] == 'Egreso']
         df_expenses['date'] = pd.to_datetime(df_expenses['date'])
         df_expenses['day'] = df_expenses['date'].dt.day

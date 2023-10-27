@@ -387,7 +387,7 @@
           <div class="col-12">
             <h1>Oh, existen algunas transacciones que merecen tu atención...</h1> 
             <br>
-            <p class="button-description2"> ¡Amigo! Hay cuentas que no pudieron ser categorizadas, así que revísalas por ti mismo. No olvides que todo está centrado en tu cuenta principal, por lo que, si un transacción es un egreso, representa una salida de tu cuenta, y viceversa. Si tienes salidas/egresos relacionados a inversiones, tales como Fondos Mutuos/Depósitos a Plazo, deberías categorizarlas como inversiones, considerando que un egreso de tu cuenta representa un ingreso para tus inversiones, y de la misma manera que con los egresos. </p>
+            <p class="button-description2"> ¡Amigo! Hay cuentas que no pudieron ser categorizadas, así que revísalas por ti mismo. No olvides que todo está centrado en tu cuenta principal, por lo que, si un transacción es un egreso, representa una salida de tu cuenta, y viceversa. Si tienes salidas/egresos relacionados a inversiones, tales como Fondos Mutuos/Depósitos a Plazo, deberías categorizarlas como inversiones, considerando que un egreso de tu cuenta representa un ingreso para tus inversiones, y viceversa con los egresos. </p>
 
             <div class="pagination-controls">
                 <button id="prevPage" disabled>Anterior</button>
@@ -590,6 +590,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     document.getElementById('prevPage').addEventListener('click', function() {
+        event.preventDefault();
         if (currentPage > 1) {
             currentPage--;
             renderPage(currentPage);
@@ -597,6 +598,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     document.getElementById('nextPage').addEventListener('click', function() {
+        event.preventDefault();
         if (currentPage < tableCategories.length / rowsPerPage) {
             currentPage++;
             renderPage(currentPage);

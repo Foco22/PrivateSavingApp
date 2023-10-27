@@ -635,13 +635,6 @@
   </nav>
   </div> 
   <span class="select-text"> <strong>Última Actualización: </strong> {{ last_update_date }}</span>  <!-- Text added next to the left of the select dropdown -->
-  <form method="get" action="{% url 'home' %}">
-    <select name="account_name" onchange="this.form.submit()">
-      <option value="">Cuentas</option>
-      {% for account in all_accounts %}
-      <option value="{{ account.account_name }}" {% if selected_account_name == account.account_name %}selected{% endif %}>{{ account.account_name }}</option>
-      {% endfor %}
-  </select>    
   <div class="container">
         <div class="col">
           <br>

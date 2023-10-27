@@ -82,8 +82,6 @@ def get_expenses_data(saving_target, all_accounts):
     
     get_expenses_tends = graph_bank_class.get_expenses_tends(all_accounts)
     file_path = os.path.join('/django/', 'web/static', 'img/picture.jpeg')
-    print('file')
-    print(file_path)
     return {
         'total_expenses': total_expenses,
         'total_income': total_income,

@@ -76,7 +76,7 @@ class ExtractFintoc():
         elif pattern_debt_payments.search(description):
             return 'Pago de Deudas'
         elif pattern_education.search(description):
-            return 'Educación'
+            return 'Educacion'
         elif pattern_healthcare.search(description):
             return 'Salud'
         elif pattern_travel_hotel.search(description):
