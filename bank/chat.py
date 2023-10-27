@@ -152,7 +152,6 @@ class ChatGPT():
         
     def main(self):
         
-        
         df_processing_transaccions = self.get_processing_transaccions()
         try:
             if self.get_agent_sql() == False:
