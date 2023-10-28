@@ -161,10 +161,13 @@ class ExtractFintoc():
             else:
                 df['indicator_not_category'][index] = False
         
-        
+        pattern_linea_credito = constants.CREDIT_LINE
+        for index in range(len(df)):
+            description = df['description'][index]
+            if pattern_linea_credito.search(description):
+                df['type_expenses'][index] = 'Linea de Credito'   
         return df
-    
-    
+        
 @transaction.atomic
 def update_transactions_table(transaction_data: pd.DataFrame):
     models_bank.DataBanks.objects.all().delete()
