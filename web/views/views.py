@@ -37,7 +37,7 @@ from django.http import JsonResponse
 import openai,os,sys
 import tiktoken
 from django.shortcuts import render
-
+from bank.chat import ChatGPT
 
 logger = logging.getLogger(__name__)
 
@@ -276,7 +276,6 @@ def send_message_to_chatgpt(
     count_message
     ):
         
-    openai.api_key =  ''
     
     transactions = text_data
     if count_message == 1:
@@ -363,7 +362,7 @@ def send_message_to_chatgpt(
             return conversation_history, bot_response
 
 
-def Chat(request):
+def Chat_fine(request):
 
     try:
         selected_account_name = request.GET.get('account_name', None)
@@ -401,6 +400,46 @@ def Chat(request):
         return render(request, template_chat_name, context)
     except:
         return render(request, template_error_name)
+
+
+def Chat(request):
+
+    try:
+        selected_account_name = request.GET.get('account_name', None)
+
+        if selected_account_name:
+            table_transaction_banks = models_bank.DataBanks.objects.filter(account_name=selected_account_name)
+        else:
+            table_transaction_banks = models_bank.DataBanks.objects.all()
+        try:
+            saving_target = SavingTarget.objects.latest('created_at')  
+        except SavingTarget.DoesNotExist:
+            saving_target = None  
+
+        all_accounts = table_transaction_banks.values('account_name').distinct()
+        queryset = table_transaction_banks.all().values('account_name').distinct()
+        account_name_value = selected_account_name or (queryset[0]['account_name'] if queryset else None)
+        context = get_expenses_data(saving_target.saving_target if saving_target else 1, account_name_value)
+        
+        conversation_history = request.session.get('conversation_history', [])
+        count_message = request.session.get('count_message', 1)
+        if request.method == 'POST':
+            user_message = request.POST.get('user_message', '') 
+            request.session['conversation_history'] = conversation_history
+            count_message = count_message + 1
+            request.session['count_message'] = count_message 
+            get_chat_gpt = ChatGPT(user_message)
+            chatjs_code  = get_chat_gpt.main()
+            if chatjs_code == False:  
+                return JsonResponse({'bot_response': 'Disculpa amigo!', 'chatjs_code': chatjs_code, 'error': True})
+            else:
+                return JsonResponse({'bot_response': get_chat_gpt, 'chatjs_code': chatjs_code, 'error': False})
+        request.session['count_message'] = 1
+
+        return render(request, template_chat_name, context)
+    except:
+        return render(request, template_error_name)
+
 
 
 def Start(request):

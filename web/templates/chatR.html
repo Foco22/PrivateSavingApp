@@ -439,7 +439,8 @@
             font-size: 13px;
             margin-top: 10px;
             font-family: system-ui;
-        }
+
+                }
 
 
         #container-botom {
@@ -447,18 +448,9 @@
             height: 10px;
             flex-direction: column; 
             margin-top: -570px;
-            margin-left: 400px;
+            margin-left: 330px;
+               
         }
-
-        @media (max-width: 768px) {
-          #container-botom {
-              max-width: 100%; /* Set the max-width to 100% to make it responsive */
-              height: auto; /* Allow the height to adjust automatically */
-              margin-top: 20px; /* Adjust margin-top as needed for smaller screens */
-              margin-left: 0; /* Remove left margin for smaller screens or set as needed */
-          }
-      }
-
 
         #chat-container {
             max-width: 1000px;
@@ -505,7 +497,7 @@
             color: white;
             padding: 10px;
             border-radius: 5px;
-            text-align: center;
+            text-align: left;
             border: 1px solid rgba(176, 89, 177, 0.2);
             font-family: system-ui;
             white-space: nowrap;
@@ -618,7 +610,6 @@
       }
     </style>
 </head>
-
 <body> 
   <aside class="sidebar">
     <div class="logo">
@@ -692,7 +683,6 @@
    <button id="toggle-chat-button">Empieza..</button>
   <div id="chat-container">
     <div id="chat-log"></div>
-    </div>
   </div>
   <div id="container-botom">
   <input type="text" id="user-input" placeholder="Escribeme..."><button id="send-button">Enviar</button>
@@ -739,19 +729,13 @@
                       data: { user_message: userMessage },
                       success: function (data) {
                           const botResponse = data.bot_response;
-                          const chatjs_code = data.chatjs_code;
-                          const erroResponse = data.error;
-                          if (erroResponse === true) {
-                              $('#chat-log').append(`<div class="bot-message">${botResponse}</div>`);
-                          } else {
-                            $('#chat-log').append(`<div class="bot-message"><img src="data:image/png;base64,${chatjs_code}" alt="Image"></div>`);
-                          }
+                          $('#chat-log').append(`<div class="bot-message">${botResponse}</div>`);
+                      
                       }
                   });
               }
           });
       });
-
 
 
       $(document).ready(function () {

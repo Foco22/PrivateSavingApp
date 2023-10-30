@@ -12,14 +12,13 @@ import re
 from bank import constants
 import openai
 from sqlalchemy import create_engine, text
-
+import base64
 
 class ChatGPT():
 
     def  __init__(self, text):
         self.text = text
-        self.api = 'host:port'
-        openai.api_key =  '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'
+        openai.api_key =  ''
         self.table_transaction_banks = models_bank.DataBanks.objects.all()
 
     def get_processing_transaccions(self):
@@ -116,7 +115,9 @@ class ChatGPT():
             {
               "role": "system",
               "content": """
-                You have a Python project where you need to create visualizations from DataFrames. Your task is to generate a Python script to visualize the given data using Python libraries like matplotlib or seaborn. Your script should create a graph based on the DataFrame provided as JSON data.
+                You have a Python project where you need to create visualizations from DataFrames. Your task is to generate encoded image using the given data and Python libraries like matplotlib or seaborn.
+                Your ouput must be diccionary with this format:
+                {'image_base64': ''}
                 The Python script you generate should have the following format and structure:
                 - Import necessary libraries.
                 - Load the DataFrame from the JSON data.
@@ -127,45 +128,72 @@ class ChatGPT():
                 - Choose an appropriate color scheme and size.
                 - Output or display the graph.
 
+                Regarding to the format of the graph, the graph must following the next conditions:
+                -  transparent background. 
+                -  Xticks at 90 rotation.
+                -  Remove title (plt.title('', fontsize = 16)
+                -  Use this line: sns.despine(left=True, bottom=True)
+                -  Color of the graph must be '#66b3ff' 
+                -  Add a label to the graph.
+                -  Save it as a image base64.
+                -  The graph must be saved as graph.png.
+                -  The result must be the encoded image as output using base64 library.
+                
                 Your input will be a JSON-formatted DataFrame.
-                Please provide a Python script that accomplishes this task.
+                Please the encoded image as output using base64 library.
+                }
              """                  
             },
             {
               "role": "user",
-              "content": json_data_str
+              "content": f"Generate an encoded image from the given data: {json_data_str}"
             }
         ]
+
         json_data_str = json.dumps(json_data_list)
         try:
             response = openai.ChatCompletion.create(
-                model="gpt-3.5-turbo-16k",
+                model="gpt-4",
                 messages=conversation_history,
                 temperature=0
             )
+
             get_response_sql = response.choices[0].message["content"]
             get_response_sql = {'GraphCode': get_response_sql}
         except:
             get_response_sql = {'GraphCode': False}
         return get_response_sql
     
-        
+    def save_graph(self, graph_code):
+
+        script_graph_code = exec(graph_code)
+        print(script_graph_code)
+        print(graph_code)
+        with open('graph.png', 'rb') as image_file:
+            encoded_image = base64.b64encode(image_file.read()).decode()
+        return encoded_image
+
     def main(self):
         
         df_processing_transaccions = self.get_processing_transaccions()
         try:
             if self.get_agent_sql() == False:
-                return 'Disculpa amigo! No se puede transformar tu pregunta a una visualizacion. Intenta con otra pregunta.'
+                return False
             else:
                 df_results = self.get_agent_sql_dataframe(self.get_agent_sql(), df_processing_transaccions)
                 if df_results['DataFrame'].empty:
-                    return 'Disculpa amigo! No se puede transformar tu pregunta a una visualizacion. Intenta con otra pregunta.'
+                    return False
                 else:
                     df_results_graph = self.get_agent_dataframe_graph(df_results)
+
+                    print('codi')
+                    print(df_results_graph['GraphCode'])
+                    exec(df_results_graph['GraphCode'])
+                    print('sssssssssssss')
                     if df_results_graph['GraphCode'] == False:
-                        return 'Disculpa amigo! No se puede transformar tu pregunta a una visualizacion. Intenta con otra pregunta.'
+                        return False
                     else:
-                        return df_results_graph['GraphCode']
+                        return self.save_graph(df_results_graph['GraphCode'])
+                        #return df_results_graph['GraphCode']
         except:
-            return 'Disculpa amigo! No se puede transformar tu pregunta a una visualizacion. Intenta con otra pregunta.'
-            
+            return False
