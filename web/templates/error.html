@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>FocusApp</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" type="image/png">
+    <link rel="icon" href="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" type="image/png">     <!-- Font Awesome -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glassmorphism Sidebar HTML and CSS| CodingNepal</title>
@@ -42,29 +42,6 @@
         );
         height: 100vh;
       }
-      .card {
-        background-color:rgba(33, 37, 41, 0.4);
-        width: 98rem;
-        border-radius: 3px
-        transparent 95%;
-        margin-left: -25px;
-        height: 24rem;
-        flex-grow: 2;
-      }
-      .card {
-            overflow-y: auto; 
-      }
-      .card, .card-body {
-        overflow: visible;
-      }
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
-      * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: "Poppins", sans-serif;
-      }
 
       body {
           height: 100vh;
@@ -74,296 +51,25 @@
           background-size: cover;
       }
 
-      .sidebar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100px;
-          height: 100%;
-          display: flex;
-          align-items: left;
-          flex-direction: column;
-          backdrop-filter: blur(17px);
-          --webkit-backdrop-filter: blur(17px);
-          background:rgba(33, 37, 41, 0.4);
-          border-right: 1px solid black;
-          transition: width 0.3s ease;
-      }
-
-
-      .table-container {
-            box-shadow: 0px 4px 8px black; /* Horizontal offset, vertical offset, blur radius, shadow color */
-            border-radius: 8px; /* Optional: for rounded corners */
-            overflow: hidden; /* Optional: to ensure the shadow applies neatly even with rounded corners */
-        }
-        
-        .container {
-      text-align: center;
-      overflow: hidden;
-      width: 100rem; /* You have two width properties, so I'm using the 200rem */
-      padding: 0.1 20 2em 175;
-      top: 20px; /* Adjust this for the Y-coordinate */
-      left: 50px; /* Adjust this for the X-coordinate */
-      height: 50rem;
-      }
-      .container td, .container th {
-            padding-bottom: 1.5%;
-            padding-top: 1.5%;
-          padding-left:0.5%;  
-        }
-
-        /* Background-color of the odd rows */
-      .container tr:nth-child(odd) {
-            background-color: rgba(33, 37, 41, 0.5);
-        }
-
-        /* Background-color of the even rows */
-      .container tr:nth-child(even) {
-            background-color: rgba(33, 37, 41, 0.5);
-        }
-
-      .container th {
-            background-color: #1F2739;
-        } 
-
-      .container td:first-child { 
-        color: white;
-        background-color: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-      }
-
-      .container tr:hover {
-          background-color: #464A52;
-        -webkit-box-shadow: 0 6px 6px -6px #0E1119;
-            -moz-box-shadow: 0 6px 6px -6px #0E1119;
-                  box-shadow: 0 6px 6px -6px #0E1119;
-        }
-
-      .container td:hover {
-          background-color: white;
-          color: #403E10;
-          font-weight: bold;
-          
-          box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
-          transform: translate3d(6px, -6px, 0);
-          
-          transition-delay: 0s;
-            transition-duration: 0.4s;
-            transition-property: all;
-          transition-timing-function: line;
-        }
-
-        .styled-table {
-        border-collapse: collapse;
-        margin: 10px 10px;
-        font-size: 0.9em;
-        font-family: sans-serif;
-        box-shadow: 0 0 10px black;
-        color: white;
-        width: 70rem;  /* Adjust the width as per your requirement */
-        overflow: auto;  /* Add a scrollbar if content overflows */
-        box-shadow: 0px 0px 0px ; /* Horizontal offset, vertical offset, blur radius, shadow color */
-        border-radius: 1px; /* Optional: for rounded corners */
-        overflow: hidden; /* Optional: to ensure the shadow applies neatly even with rounded corners */
-        
-      }
-      .styled-table tbody {
-          max-height: -10rem; /* Set maximum height for tbody */
-          text-align: center;
-          vertical-align: middle;
-
-      }
-      
-      .styled-table th, .styled-table td {
-          padding: 8px; /* Adjust this value to decrease or increase spacing */
-          line-height: 0.005; 
-          text-align: center;
-          vertical-align: middle;
-          min-width: 50 b px; /* Adjust this value as needed */
-          white-space: nowrap; /* Prevents the text from wrapping onto the next line */
-
-      }
-      .styled-table th:first-child, .styled-table td:first-child {
-            text-align: left;  /* This will align the text to the left in the first column */
-      }
-
-      .styled-table thead th {
-          background-color: rgba(176, 89, 177, 0.5); /* Change to any color you want for the background */
-          color: white; /* Change to any color you want for the text */
-          /* Add any other styles you want for your table headers */
-          padding: 15px 10px;
-          
-      }
-      .table-wrapper {
-            padding: 40px; /* add some padding around the table */
-            background-color: rgba(33, 37, 41, 0.5); /* set a background color */
-            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); /* add a shadow for depth */
-            width: 1400px;
-            height: 800px;
-            margin-left: 230px;  /* Move 30 pixels to the left */
-            margin-top: -20px; 
-            border-radius: 20px;
-        }
-        .table-container {
-            margin: 10px 0px; /* Some margin around the table */
-            margin-top: 50px;     /* Adjust as needed */
-            margin-left: -140px; 
-            background-color: transparent;
-        }
-
-        .table-wrapper {
-            font-family: "Poppins", sans-serif;
-            padding-top: 25px; 
-            border: 0.5px solid rgba(176, 89, 177, 0.2);
-        }
-
-        .pagination-controls {
-    /* Adjust the position of the controls as needed */
-            text-align: right; /* Center the controls horizontally */
-            margin-top: 20px; /* Add margin to create space between the controls and the table */
-        }
-
-        .pagination-controls button {
-            font-size: 14px;  /* Adjust font size */
-            padding: 5px 5px;  /* Adjust padding to increase size */
-            border: none;  /* Remove default borders */
-            background-color: rgba(176, 89, 177, 0.5);  /* Blue background */
-            color: white;  /* White text */
-            cursor: pointer;  /* Hand cursor on hover */
-            transition: background-color 0.3s;  /* Smooth transition for hover effects */
-            border-radius: 5px;
-            font-weight: bold;
-            font-family: system-ui;
-
-        }   
-
-        .pagination-controls button:hover {
-            background-color:rgba(176, 89, 177, 0.8);  /* Darker blue on hover */
-        }
-
-        .pagination-controls button:disabled {
-            background-color: rgba(176, 89, 177, 0.5);  /* Gray out disabled buttons */
-            cursor: not-allowed;  /* Show 'not-allowed' cursor on disabled buttons */
-        }
-        .pagination-controls #pageIndicator {
-            color: white;  /* This changes the color of the entire text. Adjust to your preference. */
-        }
-        select option {
-            background-color: black;
-            color: white;  /* This is to ensure that the text on the black background is visible, change as required */
-        }
-        .custom-dropdown option {
-            background-color: black;
-            color: white;
-        }
-                select {
-            background-color: black;
-            color: white;
-        }
-        #homeButton {
-            background-color:rgba(176, 89, 177, 0.5);
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            color: white;
-            font-weight: bold;
-            font-family: system-ui;
-
-        }
-
-        #homeButton:hover {
-            background-color:rgba(176, 89, 177, 0.8);  /* Darker blue on hover */
-        }
-
-
-
-        #homeButton2 {
-            background-color:rgba(176, 89, 177, 0.5);
-            color: white;
-            border: none;
-            padding: 5px 10px;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-            font-weight: bold;
-            margin-left: -100px;
-            font-family: system-ui;
-
-        }
-        #homeButton2:hover {
-            background-color:  rgba(176, 89, 177, 0.8);  /* Gray out disabled buttons */
-        }
-
-        #sendTableData:hover {
-            background-color: rgba(0, 123, 255, 0.5);
-        }
-        
-        .button-description {
-            font-size: 12px;           /* Smaller font size */
-            color: white;               /* Grayish text color */
-            margin-top: 8px;           /* Spacing from the button */
-            font-style: italic;  
-            margin-left: -110px;      /* Italic font style */
-            text-align: left;
-        }
-
-        .styled-table select {
-             color: white
-        }
-        #loadingIcon {
-        display: none; /* Initially hidden */
-        z-index: 100;
-        position: fixed; /* It will cover the entire screen */
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Center horizontally and vertically */
-        width: 100px;
-        height: 100px;
-        }
-
-        .spinner::before {
-        content: "";
-        display: block;
-        width: 100px;
-        height:100px;
-        border: 3px solid rgba(176, 89, 177, 0.5);
-        border-top: 4px solid transparent;
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-        }
-        h1 {
-        color: hsla(218,80%,99%);
-        text-align: left;
-        font-size: 3rem;
-        margin-top: 1rem;
-        font-size: 30px;
-        font-family: system-ui;
-        margin-left: -130px
-
-      }
-
       .first-letter {
-            font-size: 30px; /* Adjust the size */
-            color:white; /* Change the color */
-            margin-bottom: 10px; /* Add some space below the text */
-            margin-left: 580px;  /* Move 30 pixels to the left */
-            font-family: system-ui;
-        }
-        
+        font-size: 1.5vw; 
+        color: white;
+        margin-bottom: 1.5rem; 
+        margin-left: 30%; 
+        font-family: system-ui;
+      }
+
       .profile img {
-          width: 200px; /* or any other size */
-          height: 200px;
-          border: 1px solid rgba(176, 89, 177, 0.8);
-          margin-left: 840px; 
-          border-radius: 60%;
-        }
+      max-width: 60%; 
+      height: auto; 
+      border: 1px solid rgba(176, 89, 177, 0.8);
+      margin-left: auto; 
+      margin-right: auto;
+      display: block;
+      border-radius: 50%; 
+      }
+
+
 </style>
 </head>
 <body>
@@ -383,6 +89,7 @@
 <br>
 <br>
 <span class="first-letter">¡Ouch! ¡Hubo problemas con la página... ! Vuelve Atras</span>
+<br>
 <br>
 <br>
 <div class="profile">

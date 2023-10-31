@@ -75,50 +75,25 @@
           background-size: cover;
       }
 
-      .sidebar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100px;
-          height: 100%;
-          display: flex;
-          align-items: left;
-          flex-direction: column;
-          backdrop-filter: blur(17px);
-          --webkit-backdrop-filter: blur(17px);
-          background:rgba(33, 37, 41, 0.4);
-          border-right: 1px solid black;
-          transition: width 0.3s ease;
-      }
 
-
-      .table-container {
-            box-shadow: 0px 4px 8px black; /* Horizontal offset, vertical offset, blur radius, shadow color */
-            border-radius: 8px; /* Optional: for rounded corners */
-            overflow: hidden; /* Optional: to ensure the shadow applies neatly even with rounded corners */
-        }
-        
         .container {
-      text-align: center;
-      overflow: hidden;
-      width: 100rem; /* You have two width properties, so I'm using the 200rem */
-      padding: 0.1 20 2em 175;
-      top: 20px; /* Adjust this for the Y-coordinate */
-      left: 50px; /* Adjust this for the X-coordinate */
-      height: 60rem;
-      }
+        text-align: center;
+        padding: 0.1 20 2em 175;
+        top: 20px; 
+        left: 50%; 
+        height: 60rem;
+        }
       .container td, .container th {
             padding-bottom: 1.5%;
             padding-top: 1.5%;
           padding-left:0.5%;  
         }
 
-        /* Background-color of the odd rows */
+
       .container tr:nth-child(odd) {
             background-color: rgba(33, 37, 41, 0.5);
         }
 
-        /* Background-color of the even rows */
       .container tr:nth-child(even) {
             background-color: rgba(33, 37, 41, 0.5);
         }
@@ -160,88 +135,82 @@
         font-family: sans-serif;
         box-shadow: 0 0 10px black;
         color: white;
-        width: 70rem;  /* Adjust the width as per your requirement */
-        overflow: auto;  /* Add a scrollbar if content overflows */
-        box-shadow: 0px 0px 0px ; /* Horizontal offset, vertical offset, blur radius, shadow color */
-        border-radius: 1px; /* Optional: for rounded corners */
-        overflow: hidden; /* Optional: to ensure the shadow applies neatly even with rounded corners */
+        width: 70rem;  
+        overflow: auto; 
+        box-shadow: 0px 0px 0px ; 
+        border-radius: 1px; 
+        overflow: hidden; 
         
       }
       .styled-table tbody {
-          max-height: -10rem; /* Set maximum height for tbody */
+          max-height: -10rem; 
           text-align: center;
           vertical-align: middle;
 
       }
       
       .styled-table th, .styled-table td {
-          padding: 8px; /* Adjust this value to decrease or increase spacing */
+          padding: 8px; 
           line-height: 0.005; 
           text-align: center;
           vertical-align: middle;
-          min-width: 50 b px; /* Adjust this value as needed */
-          white-space: nowrap; /* Prevents the text from wrapping onto the next line */
+          min-width: 50 b px; 
+          white-space: nowrap;
 
       }
       .styled-table th:first-child, .styled-table td:first-child {
-            text-align: left;  /* This will align the text to the left in the first column */
+            text-align: left;  
       }
 
       .styled-table thead th {
-          background-color: rgba(176, 89, 177, 0.5); /* Change to any color you want for the background */
-          color: white; /* Change to any color you want for the text */
-          /* Add any other styles you want for your table headers */
+          background-color: rgba(176, 89, 177, 0.5); 
+          color: white; 
           padding: 15px 10px;
           
       }
-      .table-wrapper {
-            padding: 40px; /* add some padding around the table */
-            background-color: rgba(33, 37, 41, 0.5); /* set a background color */
-            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1); /* add a shadow for depth */
-            width: 1400px;
-            height: 880px;
-            margin-left: 230px;  /* Move 30 pixels to the left */
-            margin-top: -20px; 
-            border-radius: 20px;
+        .table-wrapper {
+            padding: 40px;
+            background-color: rgba(33, 37, 41, 0.5);
+            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 1400px; 
+            height: 900px;
+            margin: 20px auto; 
+            border-radius: 30px;
+            border: 0.5px solid rgba(176, 89, 177, 0.2);
         }
         .table-container {
-            margin: 10px 0px; /* Some margin around the table */
-            margin-top: 50px;     /* Adjust as needed */
+            margin: 10px 0px;
+            margin-top: 50px;    
             margin-left: -140px; 
             background-color: transparent;
         }
 
         .first-letter {
-            font-size: 30px; /* Adjust the size */
-            color:white; /* Change the color */
-            margin-bottom: 30px; /* Add some space below the text */
-            margin-left: 100px;  /* Move 30 pixels to the left */
+            font-size: 30px;
+            color:white; 
+            margin-bottom: 30px; 
+            margin-left: 100px;  
             margin-top: 20px; 
             font-family: "Roboto", sans-serif;
             
 
         }
 
-        .table-wrapper {
-            font-family: "Poppins", sans-serif;
-            padding-top: 25px; 
-            border: 0.5px solid rgba(176, 89, 177, 0.2);
-        }
 
         .pagination-controls {
-    /* Adjust the position of the controls as needed */
-            text-align: right; /* Center the controls horizontally */
-            margin-top: 20px; /* Add margin to create space between the controls and the table */
+            text-align: right; 
+            margin-top: 20px; 
         }
 
         .pagination-controls button {
-            font-size: 14px;  /* Adjust font size */
-            padding: 5px 5px;  /* Adjust padding to increase size */
-            border: none;  /* Remove default borders */
-            background-color: rgba(176, 89, 177, 0.5);  /* Blue background */
-            color: white;  /* White text */
-            cursor: pointer;  /* Hand cursor on hover */
-            transition: background-color 0.3s;  /* Smooth transition for hover effects */
+            font-size: 14px;  
+            padding: 5px 5px; 
+            border: none;  
+            background-color: rgba(176, 89, 177, 0.5);
+            color: white; 
+            cursor: pointer;  
+            transition: background-color 0.3s; 
             border-radius: 5px;
             font-weight: bold;
             font-family: system-ui;
@@ -249,19 +218,19 @@
         }   
 
         .pagination-controls button:hover {
-            background-color:rgba(176, 89, 177, 0.8);  /* Darker blue on hover */
+            background-color:rgba(176, 89, 177, 0.8); 
         }
 
         .pagination-controls button:disabled {
-            background-color: rgba(176, 89, 177, 0.5);  /* Gray out disabled buttons */
-            cursor: not-allowed;  /* Show 'not-allowed' cursor on disabled buttons */
+            background-color: rgba(176, 89, 177, 0.5); 
+            cursor: not-allowed; 
         }
         .pagination-controls #pageIndicator {
-            color: white;  /* This changes the color of the entire text. Adjust to your preference. */
+            color: white;  
         }
         select option {
             background-color: black;
-            color: white;  /* This is to ensure that the text on the black background is visible, change as required */
+            color: white; 
         }
         .custom-dropdown option {
             background-color: black;
@@ -286,7 +255,7 @@
         }
 
         #homeButton:hover {
-            background-color:rgba(176, 89, 177, 0.8);  /* Darker blue on hover */
+            background-color:rgba(176, 89, 177, 0.8);  
         }
 
 
@@ -305,7 +274,7 @@
 
         }
         #homeButton2:hover {
-            background-color:  rgba(176, 89, 177, 0.8);  /* Gray out disabled buttons */
+            background-color:  rgba(176, 89, 177, 0.8);  
         }
 
         #sendTableData:hover {
@@ -313,18 +282,18 @@
         }
         
         .button-description {
-            font-size: 13px;           /* Smaller font size */
-            color: white;               /* Grayish text color */
-            margin-top: 8px;           /* Spacing from the button */
-            margin-left: -110px;      /* Italic font style */
+            font-size: 13px;         
+            color: white;              
+            margin-top: 8px;         
+            margin-left: -110px;      
             text-align: left;
         }
 
         .button-description2 {
-            font-size: 15px;           /* Smaller font size */
-            color: white;               /* Grayish text color */
-            margin-top: 8px;           /* Spacing from the button */
-            margin-left: -130px;      /* Italic font style */
+            font-size: 15px;         
+            color: white;             
+            margin-top: 8px;           
+            margin-left: -130px;     
             text-align: left;
             font-family: system-ui;
         }
@@ -333,12 +302,12 @@
              color: white
         }
         #loadingIcon {
-        display: none; /* Initially hidden */
+        display: none; 
         z-index: 100;
-        position: fixed; /* It will cover the entire screen */
+        position: fixed; 
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+        transform: translate(-50%, -50%); 
         width: 100px;
         height: 100px;
         }
@@ -459,9 +428,9 @@ for (let option of options) {
     select.appendChild(opt);
 }
 
-select.name = "TipoUsuario";  // Add a name attribute
+select.name = "TipoUsuario";  
 select.addEventListener('change', function() {
-        changes[i] = changes[i] || {}; // Use i instead of rowIndex
+        changes[i] = changes[i] || {};
         changes[i][this.name] = this.value;
         callback(this.value);
     });
@@ -472,7 +441,7 @@ return select;
 
 function createDropdown2(i, type) {
 const select = document.createElement("select");
-select.name = "SubCategoriaUsuario";  // Add a name attribute
+select.name = "SubCategoriaUsuario";  
 const options = dropdown2Options[type] || [];
 
 for (let option of options) {
@@ -482,7 +451,7 @@ for (let option of options) {
     select.appendChild(opt);
 }
 
-select.name = "SubCategoriaUsuario";  // Add a name attribute
+select.name = "SubCategoriaUsuario"; 
 select.addEventListener('change', function() {
     let dataIndex = this.closest('tr').getAttribute('data-index');
     changes[dataIndex] = changes[dataIndex] || {};
@@ -505,7 +474,7 @@ document.addEventListener("DOMContentLoaded", function() {
         tableHeadRow.appendChild(th);
     }
 
-    // Add new headers
+
     const th1 = document.createElement("th");
     th1.textContent = "TipoUsuario";
     tableHeadRow.appendChild(th1);
@@ -615,10 +584,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 $(document).ready(function() {
-    var allData = {};  // This object will store data for each paginated page
-    var currentPage = 1;  // Assumes starting from page 1. Adjust if necessary.
+    var allData = {}; 
+    var currentPage = 1;  
 
-    // A function to gather the current page's table data
     function gatherCurrentPageData() {
         var currentPageData = [];
 
@@ -641,36 +609,27 @@ $(document).ready(function() {
         allData[currentPage] = currentPageData;
     }
 
-    // Monitor changes on the current page's data
     $(document).on('change', '#tableBody input, #tableBody select', gatherCurrentPageData);
-
-    // You may have some logic to change the currentPage value when your pagination control is used.
-    // For example:
-    // $(document).on('click', '.pagination-button', function() {
-    //     currentPage = $(this).data('page-number');
-    //     gatherCurrentPageData();
-    // });
 
     $("#myForm").on('submit', function(e) {
         e.preventDefault();
         window.location.href = "/home"
         });
 
-        // Handle homeButton2 click
         $("#homeButton2").on('click', function(e) {
         e.preventDefault();
 
         $("#loadingIcon").show();
 
-        gatherCurrentPageData();  // Ensure we have the latest page's data
+        gatherCurrentPageData();  
 
-        // Flatten allData into a single array for submission
+   
         var combinedData = [].concat.apply([], Object.values(allData));
 
         $.ajax({
-            type: 'POST',  // Note: If you want to use GET, adjust as necessary. 
-                           // However, remember that GET requests shouldn't modify server state.
-            url: '{% url "clasification" %}', // Adjust this URL to where you want to send the data.
+            type: 'POST',  
+                           
+            url: '{% url "clasification" %}', 
             data: JSON.stringify(combinedData),
             headers: {
                 "X-CSRFToken": getCookie("csrftoken")
@@ -680,7 +639,7 @@ $(document).ready(function() {
             success: function(response) {
                 setTimeout(function() {
                 $("#loadingIcon").hide();
-            }, 1000); // 1000 milliseconds = 1 second
+            }, 1000); 
             },
             error: function(error) {
                 alert("An error occurred. Please try again.");

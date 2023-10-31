@@ -8,311 +8,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>FocusApp</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" type="image/png">
-    <!-- Font Awesome -->
-    <!-- MDB -->
-    <!--<link rel="stylesheet" href="/django/web/static/css/mdb.min.css" /> -->
+    <link rel="icon" href="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" type="image/png">    
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glassmorphism Sidebar HTML and CSS| CodingNepal</title>
-    <!-- Linking Google font link for icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
-    <!-- Add jQuery for AJAX -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Add Font Awesome for loading icon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
-      body {
-        background-color: black;
-        background-image: radial-gradient(
-          650px circle at 0% 0%,
-          hsl(218,41%,35%) 15%,
-          hsl(218,41%,30%) 35%,
-          hsl(218,41%,20%) 75%,
-          hsl(218,41%,19%) 80%,
-          transparent 100% 
-        ),
-        radial-gradient(
-          1250px circle at 100% 100%,
-          hsl(218,41%,45%) 15%,
-          hsl(218,41%,30%) 35%,
-          hsl(218,41%,20%) 75%,
-          hsl(218,41%,19%) 80%,
-          transparent 80%
-        );
-        height: 100vh;
-      }
-      h1 {
-        color: hsla(218,80%,99%);
-        text-align: center;
-        font-size: 3rem;
-        margin-top: 1rem;
-        font-weight: bold;
-      }
-      .card {
-        background-color:rgba(33, 37, 41, 0.5);
-        width: 98rem;
-        border-radius: 3px
-        transparent 95%;
-        margin-left: -25px;
-        height: auto;
-        flex-grow: 3;
-        border: 1px solid rgba(255, 255, 0, 0.1);
-      }
-      .card, .card-body {
-        overflow: visible;
-      }
-      /* Importing Google font - Poppins */
-      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
-      * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
-          font-family: system-ui;
-      }
-
-      body {
-          height: 100vh;
-          width: 100%;
-          background-image: url("images/hero-bg.jpg");
-          background-position: center;
-          background-size: cover;
-      }
-
-      .sidebar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100px;
-          height: 100%;
-          display: flex;
-          align-items: left;
-          flex-direction: column;
-          backdrop-filter: blur(17px);
-          --webkit-backdrop-filter: blur(17px);
-          background:rgba(33, 37, 41, 0.5);
-          border-right: 1px solid black;
-          transition: width 0.3s ease;
-      }
-
-      .sidebar:hover {
-          width: 210px;
-      }
-
-      .sidebar .logo {
-          color: white;
-          display: flex;
-          align-items: center;
-          padding: 25px 10px 15px;
-      }
-
-      .logo img {
-          width: 43px;
-          border-radius: 50%;
-      }
-
-      .logo h2 {
-          font-size: 1.5rem;
-          font-weight: 60;
-          margin-left: 10px;
-          display: none;
-      }
-
-      .sidebar:hover .logo h2 {
-          display: block;
-      }
-
-      .sidebar .links {
-          list-style: none;
-          margin-top: 20px;
-          overflow-y: auto;
-          scrollbar-width: none;
-          height: calc(100% - 140px);
-      }
-
-      .sidebar .links::-webkit-scrollbar {
-          display: none;
-      }
-
-      .links li {
-          display: flex;
-          border-radius: 5px;
-          align-items: left;
-          max-width: 90%;
-
-      }
-
-      .links li:hover {
-          cursor: pointer;
-          background: rgba(0, 123, 255, 0.5);
-          border-right: 2px;
-      }
-
-      .links h4 {
-          color: white;
-          font-weight: 500;
-          display: none;
-          margin-bottom: 10px;
-      }
-
-      .sidebar:hover .links h4 {
-          display: block;
-      }
-
-      .links hr {
-          margin: 10px 8px;
-          border: 1px solid white;
-      }
-
-      .sidebar:hover .links hr {
-          border-color: transparent;
-      }
-
-      .links li span {
-          padding: 12px 10px;
-      }
-
-      .links li a {
-          padding: 10px;
-          color: white;
-          display: none;
-          font-weight: 500;
-          white-space: nowrap;
-          text-decoration: none;
-      }
-
-      .sidebar:hover .links li a {
-          display: block;
-      }
-
-      .links .logout-link {
-          margin-top: 20px;
-      }
-      
-      .material-symbols-outlined {
-      color: white;
-      }
-
-      .logo {
-        display: flex;
-        justify-content: center;
-        padding-left: 1px;  
-        font-size: 1.2em; 
-        margin-right: -10px
-      }
-      .first-letter {
-        font-size: 30px; /* or any other size */
-        float: left;
-        margin-right: 100px; /* or any other value */
-        text-indent: 250px; 
-        color: rgba(255, 255, 255, 0.95);
-        font-weight: 200;
-        font-family: "Poppins", sans-serif/* Use Calibri if available, otherwise fall back to a generic sans-serif font */
-      }
-      .first-letter-sub{
-        font-size: 22px; /* or any other size */
-        float: left;
-        text-indent: -90px; 
-        color: rgba(255, 255, 255, 0.7);
-        margin-top: 10px;
-        font-family:"Poppins", sans-serif;
-        font-style: italic;  
-      }
-      .col {
-        flex-grow: 2;
-      }
-      .card-two-columns-left {
-        background-color:rgba(33, 37, 41, 0.5);
-        width: 47rem;
-        border-radius: 3px
-        transparent 95%;
-        margin-left: -45px;
-        height: 25rem;
-        flex-grow: 1; 
-      }
-
-      .card-two-columns-left .card-body-two-columns-left {
-        overflow: visible;
-      }
-
-      .card-two-columns-right {
-        background-color: rgba(33, 37, 41, 0.5);
-        width: 49rem;
-        border-radius: 3px
-        transparent 95%;
-        margin-left: 100px;
-        height: 25rem;
-        flex-grow: 2; 
-      }
-      .card-two-columns-right .card-body-two-columns-right {
-        overflow: visible;
-      }
-      .circle-image {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 30px;
-        }
-        .profile {
-            display: flex;
-            align-items: center;
-        }
-
-        .sidebar:not(.active) li-picture,
-        .sidebar li-picture {
-            display: none;
-        }
-        
-        .sidebar:hover li-picture,
-        .sidebar.active li-picture {
-            display: block;
-        }
-
-        .smaller-image {
-            width: 80px;
-            height: 60px;
-            display: block;
-            margin: 0 auto;
-        }
-
-        .center-text {
-        display: block;
-        text-align: center;
-        width: 100%;
-        text-decoration: none;
-        color: white; 
-        }
-
-        a.center-text {
-        display: block;
-        text-align: center;
-        width: 100%;
-        text-decoration: none !important;
-        color:white; 
-        font-size: 12px;
-        }
-        .smaller-image {
-            width: 20px;
-            height: 20px;
-            display: block;
-            margin: 0 auto;
-        }
-        .profile {
-          display: flex;
-          align-items: center;
-        }
-        .profile img {
-          width: 15px; /* or any other size */
-        }
-        .center-text {
-          margin-left: -60px; /* adjust spacing */
-        }
 
         body {
           font-family: system-ui;
@@ -323,14 +31,14 @@
           min-height: 100vh;
           margin: 0;
         }
-
         #login-box {
           background-color: rgba(33, 37, 41, 0.5);
           border-radius: 15px;
-          padding:30px;
-          box-shadow: 0 0 10px rgba(0,0,0,0.1);
-          width: 600px;  /* Set the width */
-          height:700px;  /* Set the height */
+          padding: 20px;
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+          width: 100%; 
+          max-width: 600px; 
+          margin: 20px; 
           border: 0.5px solid rgba(176, 89, 177, 0.2);
         }
 
@@ -341,7 +49,7 @@
         }
 
         .input-field {
-          width: calc(80% - 40px);  /* Adjust width to account for padding */
+          width: calc(80% - 40px);  
           padding: 10px;
           margin-bottom: 20px;
           border-radius: 4px;
@@ -357,13 +65,13 @@
 
                 
         .input-field {
-            /* ... your existing styles for login-box ... */
-            transition: border 0.3s;  /* Smooth transition for border changes */
-            border: 1px solid transparent;  /* Initial transparent border */
+
+            transition: border 0.3s; 
+            border: 1px solid transparent;  
         }
 
         .input-field:hover {
-            border: 1px solid rgba(0, 123, 255, 0.5);  /* Change to desired color on focus */
+            border: 1px solid rgba(0, 123, 255, 0.5);
         }
 
         .submit-button {
@@ -377,36 +85,36 @@
           font-weight: bold;
         }
         label {
-            color: white;  /* Change 'blue' to any color you like */
+            color: white;  
             text-align: left;
             width: 100%;
             display: block;
             font-family: system-ui;            
             padding-left: 25px;
             padding-bottom: 5px;
-            font-weight: 10000; /* This will make the text bolder */
+            font-weight: 10000; 
  
         }
         h1 {
           text-align: center;
           font-size: 50px;
-          margin-bottom: 20px; /* Adds some space between the title and the form */
+          margin-bottom: 20px;
           font-weight: bold; 
-          font-weight: 300; /* This will make the text bolder */
+          font-weight: 300; 
           color: white
         }
         
         .submit-button:hover {
-          background-color: rgba(176, 89, 177, 0.8); /* Replace 'your-desired-color' with the color you want */
+          background-color: rgba(176, 89, 177, 0.8); 
         }
 
         #loadingIcon {
-        display: none; /* Initially hidden */
+        display: none; 
         z-index: 100;
-        position: fixed; /* It will cover the entire screen */
+        position: fixed; 
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%); /* Center horizontally and vertically */
+        transform: translate(-50%, -50%); 
         width: 100px;
         height: 100px;
         }
@@ -458,7 +166,6 @@
 </div>
 <script>
   function formatThousandSeparator(inputElem) {
-      // Remove any previous formatting, or non-numeric characters
       var intValue = parseInt(inputElem.value.replace(/\D/g, ''));
       
       if (!isNaN(intValue)) {
@@ -471,25 +178,19 @@
 
   $(document).ready(function() {
       $("#myForm").on('submit', function(e) {
-          e.preventDefault(); // Prevent the default form submit
-
-          // Show the loading icon
+          e.preventDefault(); 
           $("#loadingIcon").show();
-
           $.ajax({
               type: 'POST',
-              url: '{% url "show_start" %}', // Your form's action attribute or the URL to which form data should be sent
-              data: $(this).serialize(), // Serialize form data for submission
+              url: '{% url "show_start" %}',
+              data: $(this).serialize(), 
               success: function(response) {
-                  // On success, redirect or update the UI as required
-                  window.location.href = "/clasification"; // Assuming 'home' is your redirect URL
+                  window.location.href = "/clasification";
               },
               error: function(error) {
-                  // Handle any errors
                   $("#errorPlaceholder").html("An error occurred. Please try again.");
               },
               complete: function() {
-                  // Hide the loading icon regardless of success or error
                   $("#loadingIcon").hide();
               }
           });

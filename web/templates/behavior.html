@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
     <title>FocusApp</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" type="image/png">
+    <link rel="icon" href="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" type="image/png">     <!-- Font Awesome -->
     <!-- Font Awesome -->
     <!-- MDB -->
     <!--<link rel="stylesheet" href="/django/web/static/css/mdb.min.css" /> -->
@@ -548,6 +548,10 @@
             border: 1px solid rgba(255, 255, 0, 0.1);
 
         }
+        br {
+  margin-bottom: 10em; /* Adjust the margin as needed */
+}
+
     </style>
 </head>
 <body> 
@@ -597,12 +601,6 @@
       <br>
       <br>
       <br>
-      <li-picture>
-        <a href="https://www.focoanalyticsblog.org/#home">
-        <div class="profile">
-          <img src="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" alt="hola" class="smaller-image"> 
-        </a>
-        </li-picture>
       </div> 
         <br> 
       </aside>  
@@ -635,7 +633,9 @@
   </div>
   </nav>
   </div> 
-  <span class="select-text"> <strong>Última Actualización: </strong> {{ last_update_date }}</span>  <!-- Text added next to the left of the select dropdown -->
+  <span class="select-text"> <strong>Última Actualización: </strong> {{ last_update_date }}</span>  
+  <br>
+  <span class="select-text"> Los egresos en verde representan proyecciones de gastos basados en el comportamiento del pasado.  </span>  
   <div class="container">
         <div class="col">
           <br>
