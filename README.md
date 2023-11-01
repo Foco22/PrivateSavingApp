@@ -53,7 +53,15 @@ I also hightligh that the logic was created based on your bank account as a the 
 
 ## Transaction Classifier
 
+The classifier was done using regex, based on the description of the transaction. Those regex are in thh Bank/constants.py path, with the following information:
 
+```python
+CINE = re.compile(r'(CINEPLANET|ENJOY CASINO|CINE HOYTS|CASINO|CINE MARK|CINEMARK|CINEPOLIS|CINEPOLIS CHILE)', re.IGNORECASE)
+DEBT_PAYMENTS = re.compile(r'(TARJ CRED|TARJETA DE CREDITO|TARJ.CRED.|PAGO TC|PAGO TARJETA DE CREDITO)', re.IGNORECASE)
+EDUCATION = re.compile(r'(COURSRA|PUC|UCH|UDEC|PUCV|USACH|UACH|UNAB|UTAL|UV|USM|UDD|UDP|UFRO|UNADES|UCN|UAI|UA|UBB|UTA|USS|ULS|UCSC|UCT|UBO|UCEN|UA|UCM|UAH|UPLA|UNAP|UTEM|ULAGOS|UST|UDLA|UMCE|INACAP|UVM|UNIACC|USEK|UAC|ULL)', re.IGNORECASE)
+# ... (Rest of the code)
+CREDIT_LINE = re.compile(r'(LINEA DE CREDITO|LINEA DE CRED)', re.IGNORECASE)
+```
 
 
 ## Demo
