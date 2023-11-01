@@ -83,7 +83,7 @@ CREDIT_LINE = re.compile(r'(LINEA DE CREDITO|LINEA DE CRED)', re.IGNORECASE)
 
 You can look at a video of the app:
 
-![Demo Video](https://www.youtube.com/watch?v=MlXP2_zF-O4)
+[![Demo Video](https://example.com/demo-video-screenshot.png)](https://www.youtube.com/watch?v=MlXP2_zF-O4)
 
 ## Getting Started (How to install it)
 
