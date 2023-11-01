@@ -4,6 +4,8 @@
 
 This is a Saving app that using your financial records from your bank, allow to identify income and expenses monthly. Addicionally, the app has a discharge classifier which it be usefull to identify in what items you spend more. This classifier was done based on bussines rule, without using a ML or AI models. 
 
+Please taking in consideration that this web app has tested with single account, so it can work not so well in some cases. Addicionaly, it is very important to classifier very well the manually transactions before goingo to the dashboards
+
 ## Non-technical prerequisite
 
 Before you begin, if you want to use this app, you must sign up in Fintoc. This is a FinTech Chile that allow you to extract your financial information from your bank account. You must following the next steps:
@@ -11,13 +13,12 @@ Before you begin, if you want to use this app, you must sign up in Fintoc. This 
 - Go to the https://fintoc.com/cl
 - Sign in the website.
 - Add a new connection (blue bottom in the dashboard)
-- In the "Connect Live Link" windows, choose country, API and type of account. If it is a personal account,      should be a "Individual"
+- In the "Connect Live Link" windows, choose country, API and type of account. If it is a personal account, should be a "Individual"
 - Choose your bank account.
 - Add your RUT and password, and press "continuar"
 - You will recieve your link token, what you can use it to extract your information.
 
 After this, you also must get your secret key in the "Api Keys" section. With the Api Key and Secret key, you can use this app, because of those are the credencial neeeded to use Api of Fintoc.
-
 
 ## Technical prerequisite
 
