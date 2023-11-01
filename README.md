@@ -51,6 +51,11 @@ The app contains several graphs and insights from your income and expenses in yo
 
 I also hightligh that the logic was created based on your bank account as a the center, so if you are moving money in your bank products. If you move money to your investment, that is a money outflow from your bank account, in contract, if you move money from your investment to your bank account, that is a inflow of money in your bank account.
 
+## Transaction Classifier
+
+
+
+
 ## Demo
 
 You can look at a video of the app:
