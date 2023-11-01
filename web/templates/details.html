@@ -7,16 +7,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>FocusApp</title>
-    <link rel="icon" href="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" type="image/png">     <!-- Font Awesome -->
-    <!-- Font Awesome -->
-    <!-- MDB -->
-    <!--<link rel="stylesheet" href="/django/web/static/css/mdb.min.css" /> -->
+    <title>WebApp</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" type="image/png">   
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Glassmorphism Sidebar HTML and CSS| CodingNepal</title>
-    <!-- Linking Google font link for icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
     <link rel="stylesheet" href="style.css">
@@ -57,17 +53,14 @@
         margin-left: -25px;
         height: 24rem;
         flex-grow: 2;
-        border: 1px solid rgba(255, 255, 0, 0.1);
+        border: 1px solid rgba(176, 89, 177, 0.2);
       }
       .card {
-            /* ... */
-            overflow-y: auto; /* Adds scrollbar if the content overflows */
-            /* ... */
+            overflow-y: auto; 
       }
       .card, .card-body {
         overflow: visible;
       }
-      /* Importing Google font - Poppins */
       @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
       * {
@@ -156,7 +149,7 @@
       }
 
       .links li:hover a {
-        color: white !important; /* Change the text color to blue (or your desired color) */
+        color: white !important; 
         font-weight: bold;
       }
       .links h4 {
@@ -212,9 +205,9 @@
         margin-right: -10px
       }
       .first-letter {
-        font-size: 30px; /* or any other size */
+        font-size: 30px; 
         float: left;
-        margin-right: 100px; /* or any other value */
+        margin-right: 100px;
         text-indent: 250px; 
         color: rgba(255, 255, 255, 0.95);
         font-weight: 200;
@@ -222,7 +215,7 @@
         font-weight: bold;
       }
       .first-letter-sub{
-        font-size: 22px; /* or any other size */
+        font-size: 22px; 
         float: left;
         text-indent: -90px; 
         color: rgba(255, 255, 255, 0.7);
@@ -337,19 +330,19 @@
             margin-left: 30px;
         }
         .profile img {
-          width: 100px; /* or any other size */
+          width: 100px; 
           height: 100px;
           border: 1px solid rgba(176, 89, 177, 0.8);
           border-radius: 60%;
         }
         .center-text {
-          margin-left: -60px; /* adjust spacing */
+          margin-left: -60px; 
         }
         .kpi-title {
-          font-size: 28px; /* Adjust font size as needed */
+          font-size: 28px; 
           font-weight: bold;
-          color:  rgba(176, 89, 177, 1); /* Change to your preferred color */
-          margin-top: 12px; /* Spacing from the canvas or any other element above */
+          color:  rgba(176, 89, 177, 1); 
+          margin-top: 12px; 
           text-align: center;
           font-style: italic;
           font-family:"Poppins", sans-serif;
@@ -357,8 +350,8 @@
         }
 
         .kpi-date {
-          font-size: 15px; /* Adjust font size as needed */
-          color: white; /* Change to your preferred color */
+          font-size: 15px; 
+          color: white; 
           text-align: center;  
           font-style: italic;
           font-family:"Poppins", sans-serif;
@@ -367,9 +360,9 @@
         }
 
         .kpi-title-previous {
-          font-size: 12px; /* Adjust font size as needed */
-          color: white; /* Change to your preferred color */
-          margin-top: 5px; /* Spacing from the canvas or any other element above */
+          font-size: 12px; 
+          color: white; 
+          margin-top: 5px; 
           text-align: center;
           margin-left: 10px;
           text-decoration: none;
@@ -380,33 +373,33 @@
         }
 
         .kpi-title-previous:hover {
-            color: white; /* Replace #YOUR_CUSTOM_COLOR with your desired color value */
-            text-decoration: none; /* This removes the underline on hover */
+            color: white; 
+            text-decoration: none; 
         }
         .kpi-title:hover {
-            color: white; /* Replace #YOUR_CUSTOM_COLOR with your desired color value */
-            text-decoration: none; /* This removes the underline on hover */
+            color: white; 
+            text-decoration: none; 
         }
         .kpi-date:hover {
-            color: white; /* Replace #YOUR_CUSTOM_COLOR with your desired color value */
-            text-decoration: none; /* This removes the underline on hover */
+            color: white; 
+            text-decoration: none; 
         }
 
         select {
-          width: 140px;                      /* Set width of the dropdown */
-          padding: 5px;                      /* Space inside the dropdown */
-          border: 2px solid rgba(33, 37, 41, 0.5); /* Border around the dropdown */
-          border-radius: 5px;                /* Rounded corners */
-          font-size: 12px;                   /* Text size */
-          background-color: rgba(33, 37, 41, 0.5); /* Background color */
-          color: rgba(255, 185, 255, 1);       /* Text color */
-          appearance: none;                  /* Remove default appearance */
-          -webkit-appearance: none;          /* For Chrome and Safari */
-          -moz-appearance: none;             /* For Firefox */
-          position: relative;                /* Use relative positioning */
-          left: 93%;                         /* Move 50% to the right */
-          transform: translateX(-50%);       /* Center horizontally */
-          margin-top: -30px;                 /* Adjust the top margin as needed */
+          width: 140px;                 
+          padding: 5px;                   
+          border: 2px solid rgba(33, 37, 41, 0.5); 
+          border-radius: 5px;             
+          font-size: 12px;                 
+          background-color: rgba(33, 37, 41, 0.5); 
+          color: rgba(255, 185, 255, 1);       
+          appearance: none;                  
+          -webkit-appearance: none;        
+          -moz-appearance: none;            
+          position: relative;               
+          left: 93%;                        
+          transform: translateX(-50%);       
+          margin-top: -30px;               
           border: 0.5px solid rgba(176, 89, 177, 0.2);
           align-items: center;
         }
@@ -425,21 +418,21 @@
         }
 
         button[type="submit"] {  
-            background-color: white;       /* Background color */
-            border: none;                    /* No border */
-            border-radius: 5px;              /* Rounded corners */
-            font-size: 16px;                 /* Text size */
-            color:  rgba(0, 123, 255, 0.5);                    /* Text color */
-            cursor: pointer;                 /* Hand cursor on hover */
-            transition: background-color .3s;/* Smooth color transition */
+            background-color: white;      
+            border: none;                   
+            border-radius: 5px;         
+            font-size: 16px;                
+            color:  rgba(0, 123, 255, 0.5);                   
+            cursor: pointer;                 
+            transition: background-color .3s;
         }
 
         button[type="submit"]:hover {
-            background-color: white;       /* Slightly darker color on hover */
+            background-color: white;      
         }
 
         button[type="submit"]:active {
-            background-color: white;       /* Even darker color when active/pressed */
+            background-color: white;       
         }
         .select-text {
             margin-left: 255px;  
@@ -571,7 +564,7 @@
                 for (let i = 0; i < numColors; i++) {
                     const redComponent = Math.floor(Math.random() * 256);
                     const greenComponent = Math.floor(Math.random() * 256);
-                    const blueComponent = Math.floor(Math.random() * 128 + 128);  // Keeping blue as primary color
+                    const blueComponent = Math.floor(Math.random() * 128 + 128);  
 
                     const color = `rgb(${redComponent},${greenComponent},${blueComponent})`;
                     colors.push(color);
@@ -605,10 +598,6 @@
                   return `rgba(${r},${g},${b},${opacity})`;
             };
 
-            //rgba(0, 123, 255, 0.5)
-            //const colorlabelrandom = ['rgba(33, 37, 240, 1)', 'rgba(0, 123, 255, 0.8)','rgba(33, 200, 255, 1)','rgba(55, 250, 255, 1)','rgba(230, 250, 255, 0.8)']
-            //const colorlabelrandom = ['rgba(255, 255, 0, 1)', 'rgba(255, 255, 0, 0.8)', 'rgba(255, 255, 85, 1)', 'rgba(255, 255, 170, 1)', 'rgba(255, 255, 204, 0.8)'];
-            //const colorlabelrandom = ['rgba(255, 255, 0, 1)', 'rgba(255, 255, 0, 0.8)', 'rgba(255, 255, 85, 1)', 'rgba(255, 255, 170, 1)', 'rgba(255, 255, 204, 0.8)'];
             const baseColor = 'rgba(255, 185, 255, 1)';
             const colorlabelrandom = ['rgba(176, 89, 177, 0.9)','rgba(176, 89, 177, 0.7)','rgba(255, 185, 255, 0.5)','rgba(74, 164, 73, 0.5)','rgba(74, 164, 73, 0.9)'];
 
@@ -618,7 +607,7 @@
                 return {
                     label: category,
                     data: data,
-                    backgroundColor: colorlabelrandom[index],  // Assign the color from the colors array
+                    backgroundColor: colorlabelrandom[index], 
                 };
             });
             const config = {
@@ -645,14 +634,14 @@
                         top: 1,
                         bottom: 5
                       },
-                      align: 'start', // Aligned to start (left for a top position)
-                      position: 'top', // You can specify the position (top, bottom, left, right)
+                      align: 'start', 
+                      position: 'top', 
                    
                     },
                     legend: {
                       display: true,
                       labels: {
-                        color: 'white'  // This line sets the color of the text in the legend
+                        color: 'white'  
                       },
                       align: 'end' 
                     }
@@ -768,8 +757,8 @@
                              {
                       label: 'Egresos',
                       data: data_expenses,
-                      backgroundColor: 'rgba(176, 89, 177, 0.9)', // Light blue with some opacity
-                      borderColor: 'rgba(176, 89, 177, 0.9)', // Solid blue
+                      backgroundColor: 'rgba(176, 89, 177, 0.9)', 
+                      borderColor: 'rgba(176, 89, 177, 0.9)', 
                       borderWidth: 1
                     },
                     {
@@ -804,15 +793,15 @@
                   bottom: 5
                 },
                 
-                align: 'start', // Aligned to start (left for a top position)
-                position: 'top', // You can specify the position (top, bottom, left, right)
+                align: 'start', 
+                position: 'top',
              
               },
                 legend: {
                   display: true,
-                  position: 'top', // Place the legend at the top
+                  position: 'top', 
                   labels: {
-                    color: 'white'  // This line sets the color of the text in the legend
+                    color: 'white'  
                   },
 
                 }

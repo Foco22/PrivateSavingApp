@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>FocusApp</title>
+    <title>WebApp</title>
     <link rel="icon" href="https://raw.githubusercontent.com/Foco22/PictureProfile/main/picture_home.png" type="image/png">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'>
     <meta charset="UTF-8">
@@ -339,6 +339,7 @@
       }
 
 </style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
 
@@ -349,13 +350,12 @@
   <br>
   <div class="table-wrapper">
     <span class="first-letter"></span>
-
 <form id="myForm" method="post" action="{% url 'home' %}">
   {% csrf_token %}
   <div class="container">
       <div class="row align-items-start">
           <div class="col-12">
-            <h1>Oh, existen algunas transacciones que merecen tu atención...</h1> 
+            <h1>Oh, existen algunas transacciones que merecen tu atención...&#128558;</h1>
             <br>
             <p class="button-description2"> ¡Amigo! Hay cuentas que no pudieron ser categorizadas, así que revísalas por ti mismo. No olvides que todo está centrado en tu cuenta principal, por lo que, si un transacción es un egreso, representa una salida de tu cuenta, y viceversa. Si tienes salidas/egresos relacionados a inversiones, tales como Fondos Mutuos/Depósitos a Plazo, deberías categorizarlas como inversiones, considerando que un egreso de tu cuenta representa un ingreso para tus inversiones, y viceversa con los egresos. </p>
 

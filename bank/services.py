@@ -166,6 +166,9 @@ class ExtractFintoc():
             description = df['description'][index]
             if pattern_linea_credito.search(description):
                 df['type_expenses'][index] = 'Linea de Credito'   
+
+        df['amount'] = df['amount'].apply(lambda x : x/314)
+        
         return df
         
 @transaction.atomic
