@@ -53,7 +53,7 @@ I also hightligh that the logic was created based on your bank account as a the 
 
 ## Transaction Classifier
 
-The classifier was done using regex, based on the description of the transaction. Those regex are in thh Bank/constants.py path, with the following information:
+The classifier was done using regex, based on the description of the transaction. Those regex are in the constants.py file into the bank folder, with the following information:
 
 ```python
 CINE = re.compile(r'(CINEPLANET|ENJOY CASINO|CINE HOYTS|CASINO|CINE MARK|CINEMARK|CINEPOLIS|CINEPOLIS CHILE)', re.IGNORECASE)
